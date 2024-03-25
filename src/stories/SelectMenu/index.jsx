@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from "react";
 
 const OPTIONS = ["미국", "일본", "한국"];
 
+const LAST_INDEX = OPTIONS.length; // TODO 빌리 (책 코드에 없음)
+
 function SelectMenu() {
   const comboboxRef = useRef(null);
   const listboxRef = useRef(null);
