@@ -1,5 +1,4 @@
-import "../src/styles/reset.css";
-import "../src/styles/normalize.css";
+import "../src/styles/global.scss";
 
 /** @type { import('@storybook/react').Preview } */
 const preview = {
