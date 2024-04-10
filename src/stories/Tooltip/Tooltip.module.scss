@@ -1,0 +1,40 @@
+.detail {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+    margin-left: 5px;
+
+    &::before {
+      content: "❓";
+      display: inline-block;
+    }
+  }
+}
+
+.tooltip-container {
+  position: absolute;
+  top: 30px;
+  left: 0;
+  padding: 10px 20px;
+  background-color: #000;
+  color: #fff;
+
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: calc(100% - 74px);
+    width: 0px;
+    height: 0px;
+    border-bottom: 8px solid #000;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+  }
+}

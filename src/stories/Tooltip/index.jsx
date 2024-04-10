@@ -1,5 +1,10 @@
 import { useEffect, useState } from "react";
 
+import styles from "./Tooltip.module.scss";
+import classNames from "classnames/bind";
+
+const cx = classNames.bind(styles);
+
 function Tooltip() {
   const [showTooltip, setShowTooltip] = useState(false);
 
@@ -19,7 +24,7 @@ function Tooltip() {
   }, [showTooltip]);
 
   return (
-    <>
+    <div className={cx("detail")}>
       <p>제주 3,000원, 도서산간 3,000원 추가</p>
       <button
         type="button"
@@ -43,7 +48,7 @@ function Tooltip() {
         <div
           // 1. 툴팁 역할 명시
           role="tooltip"
-          className="tooltip-container"
+          className={cx("tooltip-container")}
           id="tooltip-container-id"
           // 3. 마우스를 툴팁 위에 올린 경우 툴팁 열기
           onMouseEnter={() => setShowTooltip(true)}
@@ -53,7 +58,7 @@ function Tooltip() {
           장바구니에서 제주/도서산간 배송비 확인 가능
         </div>
       )}
-    </>
+    </div>
   );
 }
 
