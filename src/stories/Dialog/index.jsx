@@ -1,4 +1,9 @@
 import { useEffect, useRef, useState } from "react";
+import classNames from "classnames/bind";
+
+import styles from "./Dialog.module.scss";
+
+const cx = classNames.bind(styles);
 
 const INTERACTIVE_ELEMENTS =
   "a[href]:not([disabled]), button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled])";
@@ -93,8 +98,9 @@ function Dialog() {
         // 4. 다이얼로그가 나타날 것임을 안내
         aria-haspopup="dialog"
         onClick={() => setShowDialog(true)}
+        className={cx("button")}
       >
-        {/* TODO: 빌리 */}
+        Dialog 노출
       </button>
       {showDialog && (
         <div
@@ -107,16 +113,30 @@ function Dialog() {
           aria-labelledby="dialog-title-id"
           // 3. 설명을 나타내는 텍스트 요소 id 참조
           aria-describedby="dialog-description-id"
+          className={cx("dialog")}
         >
-          <div ref={contentRef} tabIndex={-1}>
+          <div className={cx("dimmed")} onClick={() => setShowDialog(false)} />
+          <div ref={contentRef} tabIndex={-1} className={cx("content")}>
             {/* 9. 다이얼로그 내부 닫기 버튼 */}
-            <button type="button" onClick={() => setShowDialog(false)}>
-              닫기
+            <button
+              type="button"
+              aria-label="닫기"
+              onClick={() => setShowDialog(false)}
+              className={cx("button-close")}
+            />
+            <h2 id="dialog-title-id" className={cx("title")}>
+              다이얼로그란?
+            </h2>
+            <p id="dialog-description-id" className={cx("desc")}>
+              페이지 위에 새로 배치되는 대화상자
+            </p>
+            <button
+              type="button"
+              onClick={() => setShowDialog(false)}
+              className={cx("button-confirm")}
+            >
+              확인
             </button>
-            <h2 id="dialog-title-id">다이얼로그란?</h2>
-            <p id="dialog-description-id">페이지 위에 새로 배치되는 대화상자</p>
-            {/* TODO: 빌리 */}
-            {/* {...} */}
           </div>
         </div>
       )}
