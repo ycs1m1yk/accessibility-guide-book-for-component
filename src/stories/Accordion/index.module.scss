@@ -1,0 +1,54 @@
+.accordion-header {
+  position: relative;
+  width: 100%;
+  padding: 18px;
+  background-color: #eee;
+  border: 2px solid transparent;
+  color: #333;
+  text-align: left;
+  font-weight: 800;
+  font-size: 16px;
+
+  /* 아코디언 패널 확장 상태인 경우 */
+  &[aria-expanded="true"] {
+    &:before {
+      transform: translateY(-50%) rotate(-135deg);
+    }
+
+    & + .accordion-panel {
+      display: block;
+    }
+  }
+
+  /* 아코디언 패널 축소 상태인 경우 */
+  &[aria-expanded="false"] {
+    & + .accordion-panel {
+      display: none; /* 6. 시각적으로 숨기는 동시에 접근성 트리에서 제거 */
+    }
+  }
+
+  &:focus {
+    background-color: #ccc;
+    border-color: #333;
+    outline: 4px solid transparent;
+  }
+
+  &:before {
+    content: "";
+    position: absolute;
+    border: solid currentcolor;
+    border-width: 0 2px 2px 0;
+    height: 0.5rem;
+    pointer-events: none;
+    position: absolute;
+    right: 2em;
+    top: 50%;
+    transform: translateY(-60%) rotate(45deg);
+    width: 0.5rem;
+  }
+}
+
+.accordion-panel {
+  margin: 18px 0;
+  padding: 0 18px;
+}
