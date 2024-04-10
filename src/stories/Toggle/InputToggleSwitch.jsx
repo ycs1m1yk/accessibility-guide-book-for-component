@@ -1,5 +1,10 @@
 import { useState } from "react";
 
+import styles from "./InputToggleSwitch.module.scss";
+import classNames from "classnames/bind";
+
+const cx = classNames.bind(styles);
+
 function InputToggleSwitch() {
   const [isChecked, setIsChecked] = useState(false);
 
@@ -11,12 +16,13 @@ function InputToggleSwitch() {
   };
 
   return (
-    <label>
+    <label className={cx("label")}>
       <span>프로필 전체공개 설정</span>
       {/* 4. 초점 이동이 가능한 input 태그 사용 */}
       <input
         type="checkbox"
         role="switch" // 1. 토글 스위치 정의
+        checked={isChecked}
         onChange={() => setIsChecked((prev) => !prev)} // 켜짐/꺼짐 상태값 변경
         onKeyDown={handleKeyDown} // 6. 키보드 컨트롤
       />
