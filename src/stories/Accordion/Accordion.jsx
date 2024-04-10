@@ -1,6 +1,6 @@
 import { useState, useCallback, forwardRef } from "react";
 
-import styles from "./index.module.scss";
+import styles from "./Accordion.module.scss";
 import classNames from "classnames/bind";
 
 const cx = classNames.bind(styles);
