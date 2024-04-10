@@ -11,7 +11,7 @@
 
   /* 아코디언 패널 확장 상태인 경우 */
   &[aria-expanded="true"] {
-    &:before {
+    &::before {
       transform: translateY(-50%) rotate(-135deg);
     }
 
@@ -33,7 +33,7 @@
     outline: 4px solid transparent;
   }
 
-  &:before {
+  &::before {
     content: "";
     position: absolute;
     border: solid currentcolor;
