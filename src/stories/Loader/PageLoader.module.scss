@@ -1,0 +1,34 @@
+.button {
+  width: 150px;
+  padding: 10px 0;
+  font-size: 15px;
+  line-height: 1.4;
+  border: 1px solid #000;
+  border-radius: 3px;
+}
+
+.page {
+  border: 1px solid #000;
+  margin-top: 10px;
+  padding: 24px;
+  height: 300px;
+}
+
+.loading-ui {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50px;
+  border-radius: 50%;
+  border: 8px solid rgba(#000, 0.15);
+  border-right-color: #000;
+  aspect-ratio: 1;
+  animation: loading 1s infinite linear;
+
+  @keyframes loading {
+    to {
+      transform: translate(-50%, -50%) rotate(360deg);
+    }
+  }
+}
