@@ -1,7 +1,7 @@
 import Tooltip from "./index";
 
 export default {
-  title: "Part1/Tooltip",
+  title: "Part1",
   component: Tooltip,
 };
 
