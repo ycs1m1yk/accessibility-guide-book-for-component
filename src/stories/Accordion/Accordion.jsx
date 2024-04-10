@@ -49,7 +49,7 @@ export const Accordion = forwardRef(function Accordion(
     <>
       <button // 1. 버튼 태그 사용
         type="button"
-        className={cx("accordion-header")}
+        className={cx("header")}
         onClick={() => setIsOpen((prevOpen) => !prevOpen)} // 아코디언 상태 변경
         aria-expanded={isOpen} // 2. 아코디언 상태에 따라 aria-expanded 속성값 변경
         aria-controls={`accordion-panel-${title}-id`} // 3. 노출되는 아코디온 패널 요소 id 참조
@@ -61,7 +61,7 @@ export const Accordion = forwardRef(function Accordion(
       </button>
       <div
         id={`accordion-panel-${title}-id`} // 3. 아코디언 패널의 id 정의
-        className={cx("accordion-panel")}
+        className={cx("panel")}
         aria-labelledby={`accordion-header-${title}-id`} // 4. 연관된 아코디온 헤더 요소 id 참조
         role="region" // 5. `role="region"` 명시
       >
