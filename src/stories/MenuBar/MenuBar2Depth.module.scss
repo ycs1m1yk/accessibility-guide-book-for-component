@@ -1,0 +1,73 @@
+.menubar {
+  position: relative;
+  display: flex;
+}
+
+@mixin menuItem {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 15px;
+  line-height: 1.4;
+
+  &[aria-current="page"] {
+    font-weight: 700;
+    background-color: rgba(#000, 0.15);
+  }
+
+  &:focus {
+    outline: 3px solid -webkit-focus-ring-color;
+    outline-offset: -3px;
+  }
+}
+
+.menuitem {
+  @include menuItem;
+
+  &.has-selected-sub-menuitem {
+    font-weight: 700;
+    background-color: rgba(#000, 0.15);
+  }
+}
+
+.menu-wrap {
+  position: relative;
+}
+
+.menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  display: none;
+  flex-direction: column;
+  width: 160px;
+  border: 1px solid #000;
+  border-radius: 3px;
+
+  .menuitem[aria-expanded="true"] + & {
+    display: flex;
+  }
+}
+
+.sub-menuitem {
+  position: relative;
+
+  @include menuItem;
+
+  &[aria-current="page"] {
+    padding-right: 40px;
+    font-weight: 900;
+    background-color: rgba(#000, 0.15);
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: 10px;
+      width: 16px;
+      height: 8px;
+      border-bottom: 2px solid #000;
+      border-left: 2px solid #000;
+      transform: translateY(-50%) translateY(-2px) rotate(-45deg);
+    }
+  }
+}

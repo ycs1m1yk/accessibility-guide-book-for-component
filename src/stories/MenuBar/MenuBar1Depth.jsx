@@ -1,8 +1,13 @@
 import { useEffect, useState, useRef } from "react";
+import classNames from "classnames/bind";
+
+import styles from "./MenuBar1Depth.module.scss";
+
+const cx = classNames.bind(styles);
 
 const MENU_LIST = ["홈", "소개", "소식", "문의"];
 
-function SimpleMenuBar() {
+function MenuBar1Depth() {
   const menubarRef = useRef(null);
   const menuItemRefs = useRef([]);
 
@@ -101,6 +106,7 @@ function SimpleMenuBar() {
         role="menubar"
         // 4. aria-label 추가 (스크린 리더 🔈: 메뉴표시줄 메인 4개의 항목)
         aria-label="메인"
+        className={cx("menubar")}
       >
         {MENU_LIST.map((menuItem, menuIndex) => (
           <a
@@ -119,6 +125,7 @@ function SimpleMenuBar() {
             onPointerOver={() => moveFocusToMenuItem(menuIndex)}
             // 11. ~ 15. 키보드 컨트롤
             onKeyDown={handleKeyDownMenuItem}
+            className={cx("menuitem")}
           >
             {menuItem}
           </a>
@@ -128,4 +135,4 @@ function SimpleMenuBar() {
   );
 }
 
-export default SimpleMenuBar;
+export default MenuBar1Depth;
