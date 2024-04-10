@@ -1,4 +1,9 @@
 import { useEffect, useRef, useState } from "react";
+import classNames from "classnames/bind";
+
+import styles from "./Tab.module.scss";
+
+const cx = classNames.bind(styles);
 
 const TAB_LIST = ["경제", "과학", "스포츠"];
 
@@ -68,7 +73,9 @@ function Tab() {
   return (
     <>
       {/* 2. 탭 리스트 레이블 제공 */}
-      <strong id="tablist-title-id">뉴스</strong>
+      <strong id="tablist-title-id" className={cx("title")}>
+        뉴스
+      </strong>
       <div
         ref={tablistRef}
         // 1. tablist 역할 명시
@@ -77,6 +84,7 @@ function Tab() {
         aria-labelledby="tablist-title-id"
         // 3. 탭 나열 방향 명시
         aria-orientation="horizontal"
+        className={cx("tablist")}
       >
         {TAB_LIST.map((item, index) => {
           const isSelected = selectedIndex === index;
@@ -96,6 +104,7 @@ function Tab() {
               onClick={() => setSelectedIndex(index)}
               // 9. 키보드 'Tab'키 동작으로는 선택된 탭으로만 초점 이동 가능하도록 적용
               tabIndex={isSelected ? 0 : -1}
+              className={cx("tab")}
             >
               {item}
             </button>
@@ -110,9 +119,9 @@ function Tab() {
         aria-labelledby={`tab-${selectedIndex}-id`}
         // 11. 탭 패널이 초점을 받을 수 있도록 처리
         tabIndex={0}
+        className={cx("tabpanel")}
       >
-        {/* TODO: 빌리 */}
-        {/* 탭 패널 콘텐츠 */}
+        {TAB_LIST[selectedIndex]} 콘텐츠 영역
       </div>
     </>
   );
