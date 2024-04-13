@@ -1,8 +1,8 @@
-import Tooltip from "./index";
+import BasicTooltip from "./index";
 
 export default {
   title: "Part1",
-  component: Tooltip,
+  component: BasicTooltip,
 };
 
-export const BasicTooltip = {};
+export const Tooltip = {};
