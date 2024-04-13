@@ -1,6 +1,6 @@
 .menubar {
   position: relative;
-  display: flex;
+  display: inline-flex;
 }
 
 @mixin menuItem {
@@ -14,7 +14,8 @@
     background-color: rgba(#000, 0.15);
   }
 
-  &:focus {
+  &:focus,
+  &:hover {
     outline: 3px solid -webkit-focus-ring-color;
     outline-offset: -3px;
   }

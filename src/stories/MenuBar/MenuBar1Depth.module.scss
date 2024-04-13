@@ -14,7 +14,8 @@
     background-color: #ddd;
   }
 
-  &:focus {
+  &:focus,
+  &:hover {
     outline: 3px solid -webkit-focus-ring-color;
     outline-offset: -3px;
   }
