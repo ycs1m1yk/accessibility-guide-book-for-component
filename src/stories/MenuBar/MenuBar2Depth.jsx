@@ -377,7 +377,10 @@ function MultipleMenuBar() {
                     : undefined
                 }
                 // 9. 상위 메뉴 항목 클릭 시 동작
-                onClick={() => handleClickMenuItem(menuIndex, hasSubMenu)}
+                onClick={(event) => {
+                  event.preventDefault(); // 링크 동작 제거(스토리북 테스트용)
+                  handleClickMenuItem(menuIndex, hasSubMenu);
+                }}
                 // 15. 활성화된 메뉴 항목에만 tabindex="0" 추가
                 tabIndex={menuIndex === activeMenuItem ? 0 : -1}
                 // 17. 상위 메뉴 항목 pointerover 이벤트 발생 시 동작
@@ -425,7 +428,10 @@ function MultipleMenuBar() {
                           : undefined
                       }
                       // 14. 하위 메뉴 항목 클릭 시 동작
-                      onClick={() => handleClickSubMenuItem(subMenuIndex)}
+                      onClick={(event) => {
+                        event.preventDefault(); // 링크 동작 제거(스토리북 테스트용)
+                        handleClickSubMenuItem(subMenuIndex);
+                      }}
                       // 15. 활성화된 메뉴 항목에만 tabindex="0" 추가
                       tabIndex={
                         subMenuIndex === activeSubMenuItem[menuIndex] ? 0 : -1

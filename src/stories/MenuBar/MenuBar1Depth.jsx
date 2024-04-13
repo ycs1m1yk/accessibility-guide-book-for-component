@@ -118,7 +118,10 @@ function MenuBar1Depth() {
             // 6. 선택된 메뉴 항목에 aria-current="page" 속성 추가
             aria-current={menuIndex === selectedMenuItem ? "page" : undefined}
             // 7. 메뉴 항목 클릭 시 해당 메뉴 항목 선택
-            onClick={() => setSelectedMenuItem(menuIndex)}
+            onClick={(event) => {
+              event.preventDefault(); // 링크 동작 제거(스토리북 테스트)
+              setSelectedMenuItem(menuIndex);
+            }}
             // 8. 활성화된 메뉴 항목에만 tabindex="0" 추가
             tabIndex={menuIndex === activeMenuItem ? 0 : -1}
             // 10. pointerover 이벤트 발생 시 해당 메뉴 항목으로 초점 이동
