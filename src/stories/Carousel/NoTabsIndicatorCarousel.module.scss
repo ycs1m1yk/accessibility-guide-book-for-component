@@ -62,7 +62,6 @@
   padding-top: 10px;
   text-align: center;
 
-  button,
   div {
     display: inline-block;
     margin: 0 4px;
@@ -70,10 +69,9 @@
     background-color: #bbb;
     border-radius: 8px;
     color: #fff;
-  }
 
-  div[aria-current="true"],
-  button[aria-selected="true"] {
-    background-color: #888;
+    &[aria-current="true"] {
+      background-color: #888;
+    }
   }
 }

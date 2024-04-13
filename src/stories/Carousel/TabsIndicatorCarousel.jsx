@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 
-import styles from "./Carousel.module.scss";
+import styles from "./TabsIndicatorCarousel.module.scss";
 import classNames from "classnames/bind";
 
 const cx = classNames.bind(styles);
