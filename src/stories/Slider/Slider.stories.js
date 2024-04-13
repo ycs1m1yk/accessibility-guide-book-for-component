@@ -5,4 +5,4 @@ export default {
   component: Slider,
 };
 
-export const BasicSlider = {};
+export const InputSlider = {};
