@@ -119,7 +119,7 @@ function MenuBar1Depth() {
             aria-current={menuIndex === selectedMenuItem ? "page" : undefined}
             // 7. 메뉴 항목 클릭 시 해당 메뉴 항목 선택
             onClick={(event) => {
-              event.preventDefault(); // 링크 동작 제거(스토리북 테스트)
+              event.preventDefault(); // 링크 동작 제거(스토리북 테스트용)
               setSelectedMenuItem(menuIndex);
             }}
             // 8. 활성화된 메뉴 항목에만 tabindex="0" 추가
