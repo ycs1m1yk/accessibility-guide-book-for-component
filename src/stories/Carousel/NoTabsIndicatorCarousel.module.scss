@@ -1,6 +1,6 @@
 .slide-item {
   display: none;
-  background-color: rgba(225, 125, 125, 0.3);
+  background-color: #eee;
 
   a {
     display: block;
@@ -25,7 +25,7 @@
   .next {
     position: absolute;
     padding: 4px 10px;
-    background-color: #888;
+    background-color: #027dfa;
     border-radius: 8px;
     color: #fff;
   }
@@ -44,34 +44,50 @@
   width: 32px;
   height: 32px;
   border-radius: 8px;
-  background-color: #888;
+  background-color: #027dfa;
 
   &::before {
-    content: "⏸";
-    display: blocks;
+    content: "";
+    display: inline-block;
+    width: 0;
+    height: 12px;
+    border: 0;
+    background: transparent;
+    box-sizing: border-box;
+    border-color: transparent transparent transparent #fff;
+    border-style: double;
+    border-width: 0px 0 0px 10px;
+    vertical-align: middle;
   }
 
   &.paused {
     &::before {
-      content: "▶️";
+      border-style: solid;
+      border-width: 6px 0 6px 10px;
     }
   }
 }
 
 .indicators {
-  padding-top: 10px;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
 
   div {
     display: inline-block;
+    width: 24px;
+    height: 10px;
     margin: 0 4px;
-    padding: 4px 10px;
     background-color: #bbb;
-    border-radius: 8px;
+    border-radius: 20px;
     color: #fff;
 
     &[aria-current="true"] {
-      background-color: #888;
+      width: 16px;
+      height: 16px;
+      background-color: #027dfa;
+      border-radius: 50%;
     }
   }
 }

@@ -17,7 +17,7 @@ function Slider() {
   };
 
   const progress = sliderValue / MAX;
-  const progressBackground = `linear-gradient(to right, #4bcbe9 ${
+  const progressBackground = `linear-gradient(to right, #027dfa ${
     progress * 100
   }%, #eee ${progress * 100}%)`;
 

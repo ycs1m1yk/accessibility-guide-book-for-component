@@ -168,9 +168,7 @@ function Carousel() {
           <div
             key={index}
             aria-current={index === activeIndex ? "true" : undefined} // 3. 현재 화면에 보이는 슬라이드에 aria-current="true" 추가
-          >
-            슬라이드 {index + 1}
-          </div>
+          />
         ))}
       </div>
     </div>

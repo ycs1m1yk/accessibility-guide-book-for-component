@@ -1,10 +1,16 @@
 .button {
   display: flex;
   align-items: center;
-  margin-top: 18px;
-  color: #5e5e5e;
+  margin-top: 8px;
+  padding: 10px;
+  border: 0px solid #027dfa;
+  color: #333;
   font-weight: 600;
   cursor: pointer;
+
+  &:first-of-type {
+    margin-top: 18px;
+  }
 
   span[aria-hidden="true"] {
     margin-left: 10px;
@@ -12,8 +18,8 @@
 
   &[aria-checked="true"] {
     .switch {
-      background-color: #2ecc71;
-      border-color: #2ecc71;
+      background-color: #027dfa;
+      border-color: #027dfa;
 
       &::before {
         background-color: #fff;
@@ -23,15 +29,12 @@
     }
   }
 
-  &:focus {
-    outline-offset: 2px;
-    outline: 2px solid #2ecc71;
-  }
-
-  &:enabled {
-    &:hover {
-      box-shadow: 0 0 0 4px #eee;
-    }
+  &:focus,
+  &:hover {
+    padding: 8px;
+    outline: none;
+    border-width: 2px;
+    background-color: #def;
   }
 }
 

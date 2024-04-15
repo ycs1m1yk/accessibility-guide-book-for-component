@@ -1,9 +1,26 @@
 .label {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  color: #5e5e5e;
+  padding: 10px;
+  color: #333;
   font-weight: 600;
-  cursor: pointer;
+  border: 0px solid #027dfa;
+
+  &:hover {
+    padding: 8px;
+    outline: none;
+    border-width: 2px;
+    background-color: #def;
+    cursor: pointer;
+  }
+
+  &.focus {
+    padding: 8px;
+    outline: none;
+    border-width: 2px;
+    background-color: #def;
+    cursor: pointer;
+  }
 
   span:not([aria-hidden="true"]) {
     margin-right: 24px;
@@ -19,6 +36,8 @@
     height: 25px;
     border: 1px solid #ddd;
     border-radius: 25px;
+    outline: none;
+    cursor: pointer;
 
     &::before {
       content: "";
@@ -33,24 +52,13 @@
     }
 
     &:checked {
-      background-color: #2ecc71;
-      border-color: #2ecc71;
+      background-color: #027dfa;
+      border-color: #027dfa;
 
       &::before {
         background-color: #fff;
         left: auto;
         right: 3px;
-      }
-    }
-
-    &:focus {
-      outline-offset: 2px;
-      outline: 2px solid #2ecc71;
-    }
-
-    &:enabled {
-      &:hover {
-        box-shadow: 0 0 0 4px #eee;
       }
     }
   }

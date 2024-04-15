@@ -21,7 +21,7 @@
     top: 0;
     left: 0;
     height: 100%;
-    background-color: #4bcbe9;
+    background-color: #027dfa;
   }
 }
 
@@ -32,10 +32,19 @@
   width: 18px;
   height: 18px;
   margin-left: -9px;
-  background-color: #4bcbe9;
+  background-color: #027dfa;
   border-radius: 50%;
   transform: translateY(50%);
   cursor: pointer;
+
+  &:focus,
+  &:active {
+    box-shadow: 0 0 0 13px rgba(68, 189, 240, 0.2);
+  }
+
+  &:hover {
+    box-shadow: 0 0 0 10px rgba(68, 189, 240, 0.1);
+  }
 }
 
 .slider-value {
