@@ -10,19 +10,19 @@ const SLIDE_CONTENTS = [
   {
     title: "초대할 때마다 포인트 5천원",
     description: "친구 초대하고 최대 5만원 받으세요!",
-    imageUrl: "https://example.com/slide1.png",
+    imageUrl: "https://via.placeholder.com/2400x1200/eee/000?text=",
     imageAlt: "7월 1일~30일 친구초대 이벤트",
   },
   {
     title: "역시즌 세일",
     description: "인기브랜드 미리 준비하는 역시즌 특가!",
-    imageUrl: "https://example.com/slide2.png",
+    imageUrl: "https://via.placeholder.com/2400x1200/eee/000?text=",
     imageAlt: "7월 1일~10일 역시즌 할인 특가",
   },
   {
     title: "여름 디저트 대전",
     description: "시원한 디저트를 먹으면 여름 바캉스 경품까지!",
-    imageUrl: "https://example.com/slide3.png",
+    imageUrl: "https://via.placeholder.com/2400x1200/eee/000?text=",
     imageAlt: "7월 1일~14일 디저트 모음전",
   },
 ];
