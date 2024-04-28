@@ -156,8 +156,10 @@ function Carousel() {
               onBlur={playCarousel}
             >
               <img src={item.imageUrl} alt={item.imageAlt} />
-              <strong>{item.title}</strong>
-              <p>{item.description}</p>
+              <p>
+                <strong>{item.title}</strong>
+                <span>{item.description}</span>
+              </p>
             </a>
           </div>
         ))}
