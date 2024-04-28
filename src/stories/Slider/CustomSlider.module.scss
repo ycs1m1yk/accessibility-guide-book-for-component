@@ -10,18 +10,29 @@
   position: relative;
   overflow: hidden;
   width: 100%;
-  height: 6px;
+  height: 24px;
   margin: 12px 0;
-  background-color: #eee;
-  border-radius: 12px;
   cursor: pointer;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    height: 6px;
+    border-radius: 12px;
+    background-color: #eee;
+    transform: translateY(-50%);
+  }
 
   .progress {
     position: absolute;
-    top: 0;
+    top: 50%;
     left: 0;
-    height: 100%;
+    height: 6px;
+    border-radius: 12px;
     background-color: #027dfa;
+    transform: translateY(-50%);
   }
 }
 

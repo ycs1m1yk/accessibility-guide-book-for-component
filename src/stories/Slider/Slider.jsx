@@ -33,7 +33,7 @@ function Slider() {
           min={MIN}
           max={MAX}
           step={STEP}
-          value={`${sliderValue}%`}
+          value={sliderValue}
           onChange={handleChangeValue}
           style={{
             background: progressBackground,
