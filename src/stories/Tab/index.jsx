@@ -5,7 +5,20 @@ import styles from "./Tab.module.scss";
 
 const cx = classNames.bind(styles);
 
-const TAB_LIST = ["경제", "과학", "스포츠"];
+const TAB_LIST = [
+  {
+    tab: "경제",
+    tabPanel: <EconomyContent />,
+  },
+  {
+    tab: "과학",
+    tabPanel: <ScienceContent />,
+  },
+  {
+    tab: "스포츠",
+    tabPanel: <SportsContent />,
+  },
+];
 
 function Tab() {
   const tablistRef = useRef(null);
@@ -86,7 +99,7 @@ function Tab() {
         aria-orientation="horizontal"
         className={cx("tablist")}
       >
-        {TAB_LIST.map((item, index) => {
+        {TAB_LIST.map(({ tab }, index) => {
           const isSelected = selectedIndex === index;
 
           return (
@@ -106,7 +119,7 @@ function Tab() {
               tabIndex={isSelected ? 0 : -1}
               className={cx("tab")}
             >
-              {item}
+              {tab}
             </button>
           );
         })}
@@ -121,10 +134,22 @@ function Tab() {
         tabIndex={0}
         className={cx("tabpanel")}
       >
-        {TAB_LIST[selectedIndex]} 콘텐츠 영역
+        {TAB_LIST[selectedIndex].tabPanel}
       </div>
     </>
   );
 }
 
 export default Tab;
+
+function EconomyContent() {
+  return <div>경제 콘텐츠</div>;
+}
+
+function ScienceContent() {
+  return <div>과학 콘텐츠</div>;
+}
+
+function SportsContent() {
+  return <div>스포츠 콘텐츠</div>;
+}
