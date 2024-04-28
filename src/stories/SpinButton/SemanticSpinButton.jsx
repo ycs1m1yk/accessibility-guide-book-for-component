@@ -24,10 +24,10 @@ function SemanticSpinButton() {
   return (
     <>
       {/* 2. 스핀버튼 요소 레이블 제공 */}
-      <label htmlFor="spinbutton-id" className={styles.label}>
+      <label htmlFor="spinbutton-id" className={cx("label")}>
         수량
       </label>
-      <div className={styles["spinbutton-wrap"]}>
+      <div className={cx("spinbutton-wrap")}>
         <button
           type="button"
           // 6. 중복된 기능은 키보드 초점 받지 않도록 처리
@@ -36,7 +36,7 @@ function SemanticSpinButton() {
           aria-hidden="true"
           // 8. 감소 버튼에 의해서는 값이 MIN보다 작아지지 않도록 처리
           onClick={() => setValue(Math.max(value - 1, MIN))}
-          className={styles["button-minus"]}
+          className={cx("button-minus")}
         >
           -
         </button>
@@ -52,7 +52,7 @@ function SemanticSpinButton() {
           step={1}
           value={value}
           onChange={(event) => setValue(Number(event.target.value))}
-          className={styles.spinbutton}
+          className={cx("spinbutton")}
         />
         <button
           type="button"
@@ -62,7 +62,7 @@ function SemanticSpinButton() {
           aria-hidden="true"
           // 8. 증가 버튼에 의해서는 값이 MAX보다 커지지 않도록 처리
           onClick={() => setValue(Math.min(value + 1, MAX))}
-          className={styles["button-plus"]}
+          className={cx("button-plus")}
         >
           +
         </button>

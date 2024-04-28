@@ -62,10 +62,10 @@ function AriaSpinButton() {
   return (
     <>
       {/* 2. 스핀버튼 요소 레이블 제공 */}
-      <strong id="spinbutton-label-id" className={styles.label}>
+      <strong id="spinbutton-label-id" className={cx("label")}>
         수량
       </strong>
-      <div className={styles["spinbutton-wrap"]}>
+      <div className={cx("spinbutton-wrap")}>
         <button
           type="button"
           // 6. 스크린 리더를 통해 접근하지 못하도록 처리
@@ -74,7 +74,7 @@ function AriaSpinButton() {
           onClick={() => setValue(Math.max(value - 1, MIN))}
           // 9. 중복된 기능은 키보드 초점 받지 않도록 처리
           tabIndex={-1}
-          className={styles["button-minus"]}
+          className={cx("button-minus")}
         >
           -
         </button>
@@ -95,7 +95,7 @@ function AriaSpinButton() {
           tabIndex={0}
           // 10. ~ 15. 키보드 컨트롤 동작
           onKeyDown={handleKeyDown}
-          className={styles["spinbutton-custom"]}
+          className={cx("spinbutton-custom")}
         >
           {value}
         </div>
@@ -107,7 +107,7 @@ function AriaSpinButton() {
           onClick={() => setValue(Math.min(value + 1, MAX))}
           // 9. 중복된 기능은 키보드 초점 받지 않도록 처리
           tabIndex={-1}
-          className={styles["button-plus"]}
+          className={cx("button-plus")}
         >
           +
         </button>
