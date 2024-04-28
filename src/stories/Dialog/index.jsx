@@ -115,7 +115,6 @@ function Dialog() {
           aria-describedby="dialog-description-id"
           className={cx("dialog")}
         >
-          <div className={cx("dimmed")} onClick={() => setShowDialog(false)} />
           <div ref={contentRef} tabIndex={-1} className={cx("content")}>
             {/* 9. 다이얼로그 내부 닫기 버튼 */}
             <button

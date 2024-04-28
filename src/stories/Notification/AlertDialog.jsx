@@ -114,10 +114,6 @@ function AlertDialog() {
           aria-describedby="alertdialog-description-id"
           className={cx("dialog")}
         >
-          <div
-            className={cx("dimmed")}
-            onClick={() => setShowAlertDialog(false)}
-          />
           <div ref={contentRef} tabIndex={-1} className={cx("content")}>
             <h2 id="alertdialog-title-id" className={cx("title")}>
               메시지 삭제
