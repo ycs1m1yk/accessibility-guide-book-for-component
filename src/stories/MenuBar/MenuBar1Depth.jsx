@@ -1,8 +1,13 @@
 import { useEffect, useState, useRef } from "react";
+import classNames from "classnames/bind";
+
+import styles from "./MenuBar1Depth.module.scss";
+
+const cx = classNames.bind(styles);
 
 const MENU_LIST = ["홈", "소개", "소식", "문의"];
 
-function SimpleMenuBar() {
+function MenuBar1Depth() {
   const menubarRef = useRef(null);
   const menuItemRefs = useRef([]);
 
@@ -101,6 +106,7 @@ function SimpleMenuBar() {
         role="menubar"
         // 4. aria-label 추가 (스크린 리더 🔈: 메뉴표시줄 메인 4개의 항목)
         aria-label="메인"
+        className={cx("menubar")}
       >
         {MENU_LIST.map((menuItem, menuIndex) => (
           <a
@@ -112,13 +118,17 @@ function SimpleMenuBar() {
             // 6. 선택된 메뉴 항목에 aria-current="page" 속성 추가
             aria-current={menuIndex === selectedMenuItem ? "page" : undefined}
             // 7. 메뉴 항목 클릭 시 해당 메뉴 항목 선택
-            onClick={() => setSelectedMenuItem(menuIndex)}
+            onClick={(event) => {
+              event.preventDefault(); // 링크 동작 제거(스토리북 테스트용)
+              setSelectedMenuItem(menuIndex);
+            }}
             // 8. 활성화된 메뉴 항목에만 tabindex="0" 추가
             tabIndex={menuIndex === activeMenuItem ? 0 : -1}
             // 10. pointerover 이벤트 발생 시 해당 메뉴 항목으로 초점 이동
             onPointerOver={() => moveFocusToMenuItem(menuIndex)}
             // 11. ~ 15. 키보드 컨트롤
             onKeyDown={handleKeyDownMenuItem}
+            className={cx("menuitem")}
           >
             {menuItem}
           </a>
@@ -128,4 +138,4 @@ function SimpleMenuBar() {
   );
 }
 
-export default SimpleMenuBar;
+export default MenuBar1Depth;
