@@ -1,6 +1,10 @@
 .slider {
   margin: 0 24px;
 
+  label {
+    color: #333;
+  }
+
   input[type="range"] {
     width: 100%;
     border-radius: 14px;
@@ -68,4 +72,5 @@
   position: absolute;
   top: 18px;
   right: 40px;
+  color: #333;
 }

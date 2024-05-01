@@ -7,6 +7,10 @@
   margin: 0 24px;
 }
 
+.slider-label {
+  color: #333;
+}
+
 .slider-track {
   position: relative;
   overflow: hidden;
@@ -79,4 +83,5 @@
   position: absolute;
   top: 18px;
   right: 40px;
+  color: #333;
 }

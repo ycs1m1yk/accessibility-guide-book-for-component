@@ -227,7 +227,7 @@ function SelectMenu() {
         onBlur={handleBlurCombobox}
         // 15. ~ 23. 키보드 컨트롤
         onKeyDown={handleKeyDownCombobox}
-        className={cx("combobox")}
+        className={cx("combobox", { expanded: isExpanded })}
       >
         {OPTIONS[selectedIndex]}
       </button>

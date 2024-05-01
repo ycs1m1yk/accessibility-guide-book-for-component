@@ -1,10 +1,11 @@
 .button {
   width: 150px;
   padding: 10px 0;
+  border-radius: 6px;
+  background-color: #027dfa;
   font-size: 15px;
   line-height: 1.4;
-  border: 1px solid #000;
-  border-radius: 3px;
+  color: #fff;
 }
 
 .alert {
@@ -15,7 +16,7 @@
   padding: 20px;
   font-size: 14px;
   line-height: 1.4;
-  color: #fff;
+  color: #333;
   border-radius: 10px;
-  background-color: #000;
+  background-color: #eee;
 }
