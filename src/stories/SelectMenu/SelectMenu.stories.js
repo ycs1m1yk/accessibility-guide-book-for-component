@@ -5,4 +5,6 @@ export default {
   component: SelectMenu,
 };
 
-export const BasicSelectMenu = {};
+export const BasicSelectMenu = {
+  name: "SelectMenu",
+};

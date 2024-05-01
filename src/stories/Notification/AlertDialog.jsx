@@ -1,4 +1,9 @@
 import { useEffect, useRef, useState } from "react";
+import classNames from "classnames/bind";
+
+import styles from "./AlertDialog.module.scss";
+
+const cx = classNames.bind(styles);
 
 const INTERACTIVE_ELEMENTS =
   "a[href]:not([disabled]), button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled])";
@@ -92,9 +97,9 @@ function AlertDialog() {
         // 4. dialog가 나타날 것임을 안내
         aria-haspopup="dialog"
         onClick={() => setShowAlertDialog(true)}
+        className={cx("button")}
       >
-        {/* TODO: 빌리 */}
-        {/* {...} */}
+        AlertDialog 노출
       </button>
       {showAlertDialog && (
         <div
@@ -107,14 +112,25 @@ function AlertDialog() {
           aria-labelledby="alertdialog-title-id"
           // 3. 설명을 나타내는 텍스트 요소 id 참조
           aria-describedby="alertdialog-description-id"
+          className={cx("dialog")}
         >
-          <div ref={contentRef} tabIndex={-1}>
-            <h2 id="alertdialog-title-id">메시지 삭제</h2>
-            <p id="alertdialog-description-id">정말 삭제하시겠습니까?</p>
-            <button type="button" onClick={() => setShowAlertDialog(false)}>
+          <div ref={contentRef} tabIndex={-1} className={cx("content")}>
+            <h2 id="alertdialog-title-id" className={cx("title")}>
+              메시지 삭제
+            </h2>
+            <p id="alertdialog-description-id" className={cx("desc")}>
+              정말 삭제하시겠습니까?
+            </p>
+            <button
+              type="button"
+              onClick={() => setShowAlertDialog(false)}
+              className={cx("control-button")}
+            >
               아니오
             </button>
-            <button type="button">네, 삭제합니다</button>
+            <button type="button" className={cx("control-button")}>
+              네, 삭제합니다
+            </button>
           </div>
         </div>
       )}

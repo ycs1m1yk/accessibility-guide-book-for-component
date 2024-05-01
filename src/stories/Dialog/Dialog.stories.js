@@ -5,4 +5,6 @@ export default {
   component: Dialog,
 };
 
-export const BasicDialog = {};
+export const BasicDialog = {
+  name: "Dialog",
+};

@@ -1,8 +1,44 @@
 import { useEffect, useRef, useState } from "react";
+import classNames from "classnames/bind";
 
-const OPTIONS = ["미국", "일본", "한국"];
+import styles from "./SelectMenu.module.scss";
 
-const LAST_INDEX = OPTIONS.length; // TODO 빌리 (책 코드에 없음)
+const cx = classNames.bind(styles);
+
+const OPTIONS = [
+  "가나",
+  "그리스",
+  "나이지리아",
+  "네덜란드",
+  "네팔",
+  "노르웨이",
+  "뉴질랜드",
+  "대한민국",
+  "독일",
+  "러시아",
+  "룩셈부르크",
+  "말레이시아",
+  "멕시코",
+  "미국",
+  "베트남",
+  "벨기에",
+  "브라질",
+  "수리남",
+  "스웨덴",
+  "스위스",
+  "스페인",
+  "아르헨티나",
+  "오스트레일리아",
+  "이탈리아",
+  "일본",
+  "중국",
+  "체코",
+  "캄보디아",
+  "캐나다",
+  "태국",
+  "포르투갈",
+  "프랑스",
+];
 
 function SelectMenu() {
   const comboboxRef = useRef(null);
@@ -55,7 +91,7 @@ function SelectMenu() {
 
   // step 크기만큼 다음 옵션 활성화
   const activeNextOption = (activeIndex, step = 1) => {
-    const nextIndex = Math.min(LAST_INDEX, activeIndex + step);
+    const nextIndex = Math.min(OPTIONS.length - 1, activeIndex + step);
 
     setActiveIndex(nextIndex);
   };
@@ -191,6 +227,7 @@ function SelectMenu() {
         onBlur={handleBlurCombobox}
         // 15. ~ 23. 키보드 컨트롤
         onKeyDown={handleKeyDownCombobox}
+        className={cx("combobox")}
       >
         {OPTIONS[selectedIndex]}
       </button>
@@ -202,6 +239,7 @@ function SelectMenu() {
           id="listbox-id"
           // 7. 옵션 나열 방향 명시
           aria-orientation="vertical"
+          className={cx("listbox")}
         >
           {OPTIONS.map((option, index) => (
             <button
@@ -219,6 +257,7 @@ function SelectMenu() {
               // 14. 옵션을 클릭하는 동작 중에는 11. 초점이 콤보박스를 벗어날 시 동작 무시
               onPointerDown={() => setIsOptionPointerDown(true)}
               onPointerUp={() => setIsOptionPointerDown(false)}
+              className={cx("option", index === activeIndex && "is-active")}
             >
               {option}
             </button>

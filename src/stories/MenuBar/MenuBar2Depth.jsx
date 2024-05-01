@@ -1,4 +1,9 @@
 import { useEffect, useState, useRef } from "react";
+import classNames from "classnames/bind";
+
+import styles from "./MenuBar2Depth.module.scss";
+
+const cx = classNames.bind(styles);
 
 const MENU_LIST = [
   {
@@ -347,12 +352,13 @@ function MultipleMenuBar() {
         role="menubar"
         // 4. aria-label 추가 (스크린 리더 🔈: 메뉴표시줄 메인 4개의 항목)
         aria-label="메인"
+        className={cx("menubar")}
       >
         {MENU_LIST.map(({ menuItem, subMenu }, menuIndex) => {
           const hasSubMenu = !!subMenu;
 
           return (
-            <div key={menuIndex}>
+            <div key={menuIndex} className={cx("menu-wrap")}>
               <a
                 ref={(element) => (menuItemRefs.current[menuIndex] = element)}
                 href="#"
@@ -371,7 +377,10 @@ function MultipleMenuBar() {
                     : undefined
                 }
                 // 9. 상위 메뉴 항목 클릭 시 동작
-                onClick={() => handleClickMenuItem(menuIndex, hasSubMenu)}
+                onClick={(event) => {
+                  event.preventDefault(); // 링크 동작 제거(스토리북 테스트용)
+                  handleClickMenuItem(menuIndex, hasSubMenu);
+                }}
                 // 15. 활성화된 메뉴 항목에만 tabindex="0" 추가
                 tabIndex={menuIndex === activeMenuItem ? 0 : -1}
                 // 17. 상위 메뉴 항목 pointerover 이벤트 발생 시 동작
@@ -383,6 +392,12 @@ function MultipleMenuBar() {
                 onFocus={() => setActiveMenuItem(menuIndex)}
                 // 19. ~ 27. 상위 메뉴 항목 키보드 컨트롤
                 onKeyDown={(event) => handleKeyDownMenuItem(event, hasSubMenu)}
+                className={cx(
+                  "menuitem",
+                  hasSubMenu &&
+                    menuIndex === selectedMenuItem &&
+                    "has-selected-sub-menuitem",
+                )}
               >
                 {menuItem}
               </a>
@@ -392,6 +407,7 @@ function MultipleMenuBar() {
                   role="menu"
                   // 11. 상위 메뉴 항목의 레이블 추가
                   aria-label={menuItem}
+                  className={cx("menu")}
                 >
                   {subMenu.map((subMenuItem, subMenuIndex) => (
                     <a
@@ -412,7 +428,10 @@ function MultipleMenuBar() {
                           : undefined
                       }
                       // 14. 하위 메뉴 항목 클릭 시 동작
-                      onClick={() => handleClickSubMenuItem(subMenuIndex)}
+                      onClick={(event) => {
+                        event.preventDefault(); // 링크 동작 제거(스토리북 테스트용)
+                        handleClickSubMenuItem(subMenuIndex);
+                      }}
                       // 15. 활성화된 메뉴 항목에만 tabindex="0" 추가
                       tabIndex={
                         subMenuIndex === activeSubMenuItem[menuIndex] ? 0 : -1
@@ -430,6 +449,7 @@ function MultipleMenuBar() {
                       }}
                       // 28. ~ 36. 하위 메뉴 항목 키보드 컨트롤
                       onKeyDown={handleKeyDownSubMenuItem}
+                      className={cx("sub-menuitem")}
                     >
                       {subMenuItem}
                     </a>

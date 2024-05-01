@@ -5,4 +5,6 @@ export default {
   component: Tab,
 };
 
-export const BasicTab = {};
+export const BasicTab = {
+  name: "Tab",
+};

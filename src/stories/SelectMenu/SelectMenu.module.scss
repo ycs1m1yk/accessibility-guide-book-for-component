@@ -1,0 +1,59 @@
+.combobox {
+  width: 200px;
+  padding: 10px;
+  font-size: 15px;
+  line-height: 1.4;
+  text-align: left;
+  border: 1px solid #000;
+  border-radius: 3px;
+}
+
+.listbox {
+  overflow-x: hidden;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  height: 378px;
+  margin-top: 4px;
+  border: 1px solid #000;
+  border-radius: 3px;
+}
+
+.option {
+  position: relative;
+  flex: 0 0 auto;
+  width: 100%;
+  height: 36px;
+  padding: 0 10px;
+  font-size: 15px;
+  line-height: 1.4;
+  text-align: left;
+
+  &[aria-selected="true"] {
+    padding-right: 40px;
+    font-weight: 900;
+    background-color: rgba(#000, 0.15);
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: 10px;
+      width: 16px;
+      height: 8px;
+      border-bottom: 2px solid #000;
+      border-left: 2px solid #000;
+      transform: translateY(-50%) translateY(-2px) rotate(-45deg);
+    }
+  }
+
+  &:hover {
+    background-color: rgba(#000, 0.15);
+  }
+
+  &.is-active {
+    outline: 3px solid -webkit-focus-ring-color;
+    outline-offset: -3px;
+  }
+}
