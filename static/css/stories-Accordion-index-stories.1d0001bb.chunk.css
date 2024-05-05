@@ -1,0 +1,12 @@
+/* 아코디언 패널 축소 상태인 경우 */
+.accordion-header[aria-expanded="false"] + .accordion-panel {
+  display: none; /* 6. 시각적으로 숨기는 동시에 접근성 트리에서 제거 */
+}
+
+/* 아코디언 패널 확장 상태인 경우 */
+.accordion-header[aria-expanded="true"] + .accordion-panel {
+  display: block;
+}
+
+
+/*# sourceMappingURL=stories-Accordion-index-stories.1d0001bb.chunk.css.map*/

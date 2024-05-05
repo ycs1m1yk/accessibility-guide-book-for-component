@@ -1,0 +1,10 @@
+.slide-item {
+  display: none;
+}
+
+.slide-item.active {
+  display: block;
+}
+
+
+/*# sourceMappingURL=stories-Carousel-index-stories.c1518b09.chunk.css.map*/

@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/stories-Carousel-index-stories.c1518b09.chunk.css","mappings":"AAAA;AACA;AACA;;AAEA;AACA;AACA","sources":["webpack://accessibility-guide-book-for-component/./src/stories/Carousel/index.css"],"sourcesContent":[".slide-item {\n  display: none;\n}\n\n.slide-item.active {\n  display: block;\n}\n"],"names":[],"sourceRoot":""}
