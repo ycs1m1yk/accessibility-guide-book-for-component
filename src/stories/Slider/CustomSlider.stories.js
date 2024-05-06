@@ -1,8 +1,8 @@
-import CustomSlider from "./CustomSlider";
+import DivSlider from "./CustomSlider";
 
 export default {
   title: "Part2/Slider",
-  component: CustomSlider,
+  component: DivSlider,
 };
 
-export const BasicCustomSlider = {};
+export const CustomSlider = {};

@@ -1,8 +1,8 @@
-import ButtonToggleGroup from "./ButtonToggleGroup";
+import BasicButtonToggleGroup from "./ButtonToggleGroup";
 
 export default {
   title: "Part1/Toggle",
-  component: ButtonToggleGroup,
+  component: BasicButtonToggleGroup,
 };
 
-export const BasicButtonToggleGroup = {};
+export const ButtonToggleGroup = {};
