@@ -28,3 +28,6 @@ yarn-debug.log*
 yarn-error.log*
 
 *storybook.log
+
+# storybook
+storybook-static
