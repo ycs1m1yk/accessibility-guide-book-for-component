@@ -14,7 +14,7 @@ const preview = {
         method: "",
         order: [
           "Part1",
-          ["AccordionGroup", "Loader", "Notification", "Tab", "Toggle"],
+          ["Accordion", "Loader", "Notification", "Tab", "Toggle"],
           "Part2",
           [
             "Carousel",
