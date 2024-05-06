@@ -26,11 +26,16 @@
     }
   }
 
+  &:hover {
+    background-color: #dceafe;
+    color: #333;
+  }
+
   &:focus {
     background-color: #dceafe;
     color: #333;
     border-color: #333;
-    outline: 4px solid transparent;
+    outline: 2px solid transparent;
   }
 
   &::before {
@@ -50,4 +55,5 @@
 .panel {
   margin: 18px 0;
   padding: 0 18px;
+  color: #333;
 }

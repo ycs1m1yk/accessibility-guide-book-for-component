@@ -6,17 +6,23 @@
 @mixin menuItem {
   display: inline-block;
   padding: 10px 20px;
+  border: 2px solid transparent;
   font-size: 15px;
   line-height: 1.4;
+  color: #333;
 
   &[aria-current="page"] {
-    font-weight: 700;
-    background-color: rgba(#000, 0.15);
+    background-color: #027dfa;
+    font-weight: 600;
+    color: #fff;
   }
 
   &:focus,
   &:hover {
-    outline: 3px solid -webkit-focus-ring-color;
+    border-color: #027dfa;
+    background-color: #dceafe;
+    color: #333;
+    outline: 3px solid transparent;
     outline-offset: -3px;
   }
 }
@@ -25,8 +31,9 @@
   @include menuItem;
 
   &.has-selected-sub-menuitem {
-    font-weight: 700;
-    background-color: rgba(#000, 0.15);
+    background-color: #027dfa;
+    font-weight: 600;
+    color: #fff;
   }
 }
 
@@ -41,11 +48,12 @@
   display: none;
   flex-direction: column;
   width: 160px;
-  border: 1px solid #000;
+  border: 1px solid #333;
   border-radius: 3px;
 
   .menuitem[aria-expanded="true"] + & {
     display: flex;
+    background-color: #eee;
   }
 }
 
@@ -56,18 +64,19 @@
 
   &[aria-current="page"] {
     padding-right: 40px;
-    font-weight: 900;
-    background-color: rgba(#000, 0.15);
+    background-color: #dceafe;
+    font-weight: 700;
+    color: #027dfa;
 
     &::after {
       content: "";
       position: absolute;
       top: 50%;
       right: 10px;
-      width: 16px;
-      height: 8px;
-      border-bottom: 2px solid #000;
-      border-left: 2px solid #000;
+      width: 12px;
+      height: 6px;
+      border-bottom: 2px solid #027dfa;
+      border-left: 2px solid #027dfa;
       transform: translateY(-50%) translateY(-2px) rotate(-45deg);
     }
   }
