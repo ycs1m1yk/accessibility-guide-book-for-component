@@ -1,5 +1,9 @@
 import { useState, useRef } from "react";
-import "./index.css";
+
+import styles from "./CustomSlider.module.scss";
+import classNames from "classnames/bind";
+
+const cx = classNames.bind(styles);
 
 const min = 0;
 const max = 100;
@@ -106,14 +110,21 @@ function CustomSlider() {
   };
 
   return (
-    <div className="slider-container">
-      <div className="slider" ref={sliderRef}>
-        <div id="slider-id" className="slider-label">
+    <div className={cx("slider-container")}>
+      <div className={cx("slider")} ref={sliderRef}>
+        <div id="slider-id" className={cx("slider-label")}>
           할인율
         </div>
-        <div className="slider-track" onClick={handleClickTrack} />
+        <div className={cx("slider-track")} onClick={handleClickTrack}>
+          <div
+            className={cx("progress")}
+            style={{
+              width: `${sliderValue}%`,
+            }}
+          />
+        </div>
         <div
-          className="slider-handle"
+          className={cx("slider-handle")}
           // 1. 슬라이더 역할 명시
           role="slider"
           // 2. 슬라이더의 현재 값 제공
@@ -137,7 +148,7 @@ function CustomSlider() {
           }}
         />
       </div>
-      <div className="slider-value">{sliderValue}%</div>
+      <div className={cx("slider-value")}>{sliderValue}%</div>
     </div>
   );
 }

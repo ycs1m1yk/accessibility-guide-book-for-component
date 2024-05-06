@@ -6,17 +6,23 @@
 .menuitem {
   display: inline-block;
   padding: 10px 20px;
+  border: 2px solid transparent;
   font-size: 15px;
   line-height: 1.4;
+  color: #333;
 
   &[aria-current="page"] {
-    font-weight: 700;
-    background-color: #ddd;
+    background-color: #027dfa;
+    font-weight: 600;
+    color: #fff;
   }
 
   &:focus,
   &:hover {
-    outline: 3px solid -webkit-focus-ring-color;
+    border-color: #027dfa;
+    background-color: #dceafe;
+    color: #333;
+    outline: 3px solid transparent;
     outline-offset: -3px;
   }
 }
