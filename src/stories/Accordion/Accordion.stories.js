@@ -1,7 +1,7 @@
 import AccordionGroup from "./AccordionGroup";
 
 export default {
-  title: "Part1",
+  title: "Part1/Accordion",
   component: AccordionGroup,
 };
 

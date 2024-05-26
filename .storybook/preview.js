@@ -9,6 +9,25 @@ const preview = {
         date: /Date$/i,
       },
     },
+    options: {
+      storySort: {
+        method: "",
+        order: [
+          "Part1",
+          ["Accordion", "Loader", "Notification", "Tab", "Toggle"],
+          "Part2",
+          [
+            "Carousel",
+            "Dialog",
+            "MenuBar",
+            "SelectMenu",
+            "Slider",
+            "SpinButton",
+          ],
+        ],
+        locales: "",
+      },
+    },
   },
 };
 
