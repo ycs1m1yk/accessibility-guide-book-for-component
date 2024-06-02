@@ -16,25 +16,25 @@ export const Accordion = forwardRef(function Accordion(
       switch (event.code) {
         case "ArrowDown":
           event.preventDefault();
-          onFocusChange("next"); // 8. 초점을 다음 아코디언 헤더로 이동
+          onFocusChange("next"); // 7. 초점을 다음 아코디언 헤더로 이동
 
           break;
 
         case "ArrowUp":
           event.preventDefault();
-          onFocusChange("prev"); // 9. 초점을 이전 아코디언 헤더로 이동
+          onFocusChange("prev"); // 8. 초점을 이전 아코디언 헤더로 이동
 
           break;
 
         case "Home":
           event.preventDefault();
-          onFocusChange("first"); // 10. 초점을 첫 번째 아코디언 헤더로 이동
+          onFocusChange("first"); // 9. 초점을 첫 번째 아코디언 헤더로 이동
 
           break;
 
         case "End":
           event.preventDefault();
-          onFocusChange("last"); // 11. 초점을 마지막 아코디언 헤더로 이동
+          onFocusChange("last"); // 10. 초점을 마지막 아코디언 헤더로 이동
 
           break;
 
@@ -52,7 +52,7 @@ export const Accordion = forwardRef(function Accordion(
         className={cx("header")}
         onClick={() => setIsOpen((prevOpen) => !prevOpen)} // 아코디언 상태 변경
         aria-expanded={isOpen} // 2. 아코디언 상태에 따라 aria-expanded 속성값 변경
-        aria-controls={`accordion-panel-${title}-id`} // 3. 노출되는 아코디온 패널 요소 id 참조
+        aria-controls={`accordion-panel-${title}-id`} // 3. 노출되는 아코디언 패널 요소 id 참조
         id={`accordion-header-${title}-id`} // 4. 아코디언 헤더의 id 정의
         onKeyDown={(event) => handleAccordionKeydown(event)} // 8. ~ 11. 키보드 컨트롤
         ref={ref}
@@ -62,7 +62,7 @@ export const Accordion = forwardRef(function Accordion(
       <div
         id={`accordion-panel-${title}-id`} // 3. 아코디언 패널의 id 정의
         className={cx("panel")}
-        aria-labelledby={`accordion-header-${title}-id`} // 4. 연관된 아코디온 헤더 요소 id 참조
+        aria-labelledby={`accordion-header-${title}-id`} // 4. 연관된 아코디언 헤더 요소 id 참조
         role="region" // 5. `role="region"` 명시
       >
         {content}

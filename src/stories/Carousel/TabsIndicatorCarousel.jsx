@@ -98,25 +98,25 @@ function Carousel() {
     switch (event.code) {
       case "ArrowLeft":
         event.preventDefault();
-        nextIndex = currentIndex > 0 ? currentIndex - 1 : LAST_INDEX; // 18. 이전 슬라이드 표시 및 이전 인디케이터 버튼으로 초점 이동
+        nextIndex = currentIndex > 0 ? currentIndex - 1 : LAST_INDEX; // 19. 이전 슬라이드 표시 및 이전 인디케이터 버튼으로 초점 이동
 
         break;
 
       case "ArrowRight":
         event.preventDefault();
-        nextIndex = currentIndex < LAST_INDEX ? currentIndex + 1 : 0; // 19. 다음 슬라이드 표시 및 다음 인디케이터 버튼으로 초점 이동
+        nextIndex = currentIndex < LAST_INDEX ? currentIndex + 1 : 0; // 20. 다음 슬라이드 표시 및 다음 인디케이터 버튼으로 초점 이동
 
         break;
 
       case "Home":
         event.preventDefault();
-        nextIndex = 0; // 20. 첫 번째 슬라이드 표시 및 첫 번쨰 인디케이터 버튼으로 초점 이동
+        nextIndex = 0; // 21. 첫 번째 슬라이드 표시 및 첫 번째 인디케이터 버튼으로 초점 이동
 
         break;
 
       case "End":
         event.preventDefault();
-        nextIndex = LAST_INDEX; /// 21. 마지막 슬라이드 표시 및 마지막 인디케이터 버튼으로 초점 이동
+        nextIndex = LAST_INDEX; /// 22. 마지막 슬라이드 표시 및 마지막 인디케이터 버튼으로 초점 이동
         break;
 
       default:
@@ -125,14 +125,14 @@ function Carousel() {
 
     if (nextIndex === null || nextIndex === undefined) return;
     setActiveIndex(nextIndex);
-    indicatorButtonRefs.current[nextIndex].focus(); // 18. ~ 21. 인디케이터 버튼 초점 이동
+    indicatorButtonRefs.current[nextIndex].focus(); // 17. ~ 22. 인디케이터 버튼 초점 이동
   }, []);
 
   return (
     <div role="region" aria-label="이달의 이벤트">
-      {/* 7. 캐러셀 요소에 역할과 설명 제공 */}
+      {/* 10. 캐러셀 요소에 역할과 설명 제공 */}
       <div className={cx("controls")}>
-        {/* 8. 일시정지/재생 버튼을 슬라이드 컨테이너보다 먼저 마크업 */}
+        {/* 11. 일시정지/재생 버튼을 슬라이드 컨테이너보다 먼저 마크업 */}
         <button
           type="button"
           className={cx("rotation", { paused: !isRotation })}
@@ -143,13 +143,13 @@ function Carousel() {
           aria-label={isRotation ? "일시정지" : "재생"} // 1. 캐러셀 재생 상태에 따른 버튼 대체 텍스트 변경
         />
 
-        {/* 9. 이전/다음 슬라이드 이동 버튼을 슬라이드 컨테이너보다 먼저 마크업 */}
+        {/* 12. 이전/다음 슬라이드 이동 버튼을 슬라이드 컨테이너보다 먼저 마크업 */}
         <button
           type="button"
           className={cx("previous")}
           onClick={() => handleClickControls("prev")}
           aria-controls="slide-conatainer-id" // 2. 슬라이드 컨테이너 요소 id 참조
-          // 10. 마우스 포인터를 올리거나 초점을 이동한 경우 캐러셀의 재생 상태 전환
+          // 13. 이전 슬라이드 이동 버튼에 마우스 포인터를 올리거나 초점을 이동한 경우 캐러셀의 재생 상태 전환
           onMouseOver={() => setIsAutoPlay(false)}
           onMouseOut={playCarousel}
           onFocus={() => setIsAutoPlay(false)}
@@ -162,7 +162,7 @@ function Carousel() {
           className={cx("next")}
           onClick={() => handleClickControls("next")}
           aria-controls="slide-conatainer-id" // 2. 슬라이드 컨테이너 요소 id 참조
-          // 10. 마우스 포인터를 올리거나 초점을 이동한 경우 캐러셀의 재생 상태 전환
+          // 13. 다음 슬라이드 이동 버튼에 마우스 포인터를 올리거나 초점을 이동한 경우 캐러셀의 재생 상태 전환
           onMouseOver={() => setIsAutoPlay(false)}
           onMouseOut={playCarousel}
           onFocus={() => setIsAutoPlay(false)}
@@ -186,14 +186,14 @@ function Carousel() {
               aria-controls={`slide-item-${index + 1}`} // 6. 인디케이터 버튼과 연관된 슬라이드 요소의 id 참조
               aria-selected={index === activeIndex} // 4. 현재 선택된 슬라이드인 경우 true, 아닌 경우 false
               onClick={() => handleClickControls(_, index)} // 선택한 슬라이드 노출
-              // 11. 인디케이터 버튼에 마우스 포인터를 올리거나 초점을 이동한 경우 캐러셀의 재생 상태 전환
+              // 14. 인디케이터 버튼에 마우스 포인터를 올리거나 초점을 이동한 경우 캐러셀의 재생 상태 전환
               onMouseOver={() => setIsAutoPlay(false)}
               onMouseOut={playCarousel}
               onFocus={() => setIsAutoPlay(false)}
               onBlur={playCarousel}
               ref={(el) => (indicatorButtonRefs.current[index] = el)}
               onKeyDown={(event) => handleIndicatorKeydown(event)}
-              tabIndex={activeIndex === index ? undefined : -1} // 12. 현재 표시되는 슬라이드와 연관된 인디케이터 버튼에만 초점 이동 가능
+              tabIndex={activeIndex === index ? undefined : -1} // 15. 현재 표시되는 슬라이드와 연관된 인디케이터 버튼에만 초점 이동 가능
             >
               슬라이드 {index + 1}
             </button>
@@ -204,8 +204,8 @@ function Carousel() {
       <div
         className={cx("slide-container")}
         id="slide-conatainer-id" // 2. 슬라이드 컨테이너의 id 정의
-        aria-live={isAutoPlay ? "off" : "polite"} // 4. 자동 재생인 경우 off, 일시정지인 경우 polite
-        aria-label="7월 주요 이벤트" // 5. 캐러셀의 콘텐츠 설명하는 레이블 텍스트 제공
+        aria-live={isAutoPlay ? "off" : "polite"} // 7. 자동 재생인 경우 off, 일시정지인 경우 polite
+        aria-label="7월 주요 이벤트" // 8. 캐러셀의 콘텐츠 설명하는 레이블 텍스트 제공
       >
         {SLIDE_CONTENTS.map(
           (item, index) =>
@@ -216,12 +216,12 @@ function Carousel() {
                 id={`slide-item-${index + 1}`}
                 aria-label={`총 ${SLIDE_LENGTH}개의 슬라이드 중 ${
                   index + 1
-                }번째 슬라이드`} // 5. 총 3개의 슬라이드 중 어떤 슬라이드가 표시되는지 레이블 텍스트 제공
-                role="tabpanel" // 6. 탭 패널 역할 명시
+                }번째 슬라이드`} // 8. 총 3개의 슬라이드 중 어떤 슬라이드가 표시되는지 레이블 텍스트 제공
+                role="tabpanel" // 9. 탭 패널 역할 명시
               >
                 <a
                   href="/"
-                  // 13. 마우스 포인터를 올리거나 초점을 이동한 경우 캐러셀의 재생 상태 전환
+                  // 16. 슬라이드에 마우스 포인터를 올리거나 초점을 이동한 경우 캐러셀의 재생 상태 전환
                   onMouseOver={() => setIsAutoPlay(false)}
                   onMouseOut={playCarousel}
                   onFocus={() => setIsAutoPlay(false)}
