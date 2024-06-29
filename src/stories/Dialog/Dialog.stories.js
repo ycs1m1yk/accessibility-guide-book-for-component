@@ -1,4 +1,4 @@
-import Dialog from "./index";
+import Dialog from "./Dialog";
 
 export default {
   title: "Part2/Dialog",

@@ -1,4 +1,4 @@
-import SelectMenu from "./index";
+import SelectMenu from "./SelectMenu";
 
 export default {
   title: "Part2/SelectMenu",

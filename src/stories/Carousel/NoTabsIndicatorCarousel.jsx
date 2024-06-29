@@ -28,7 +28,7 @@ const SLIDE_LENGTH = SLIDE_CONTENTS.length; // 전체 슬라이드 개수
 const LAST_INDEX = SLIDE_LENGTH - 1; // 마지막 슬라이드의 인덱스
 const SLIDE_INTERVAL_TIME = 5000; // 자동 재생 지연 시간: 5초
 
-function Carousel() {
+function NoTabsIndicatorCarousel() {
   const [activeIndex, setActiveIndex] = useState(0); // 현재 노출되고 있는 슬라이드의 인덱스
   const [isAutoPlay, setIsAutoPlay] = useState(true); // 캐러셀 재생 여부
   const [isRotation, setIsRotation] = useState(isAutoPlay); // 일시정지/재생 버튼 레이블 전환
@@ -174,4 +174,4 @@ function Carousel() {
   );
 }
 
-export default Carousel;
+export default NoTabsIndicatorCarousel;
