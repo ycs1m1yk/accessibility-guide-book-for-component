@@ -1,4 +1,4 @@
-import Tab from "./index";
+import Tab from "./Tab";
 
 export default {
   title: "Part1/Tab",
