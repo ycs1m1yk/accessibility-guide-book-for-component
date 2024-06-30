@@ -36,7 +36,7 @@ function CustomSlider() {
     moveSliderTo(offsetX);
   };
 
-  // 14. 포인터 이동 이벤트
+  /* 14. 포인터 이동 이벤트 */
   const handlePointerMove = (event) => {
     const sliderOffsetX = sliderRef.current?.getBoundingClientRect().left;
     const clientX =
@@ -45,7 +45,7 @@ function CustomSlider() {
     moveSliderTo(clientX - sliderOffsetX);
   };
 
-  // 14. 포인터 이동 이벤트
+  /* 14. 포인터 이동 이벤트 */
   const handlePointerDown = () => {
     setIsDragging(true);
 
@@ -53,7 +53,7 @@ function CustomSlider() {
     window.addEventListener("pointerup", handlePointerUp);
   };
 
-  // 14. 포인터 이동 이벤트
+  /* 14. 포인터 이동 이벤트 */
   const handlePointerUp = () => {
     setIsDragging(false);
 
@@ -63,43 +63,43 @@ function CustomSlider() {
 
   const handleKeyDown = (event) => {
     switch (event.code) {
-      // 8. 'ArrowLeft' 또는 "ArrowDown" 키를 통해 현재 값 감소
+      /* 8. ArrowLeft 또는 ArrowDown 키를 통해 현재 값 감소 */
       case "ArrowLeft":
       case "ArrowDown":
         event.preventDefault();
         setSliderValue(Math.max(min, sliderValue - step));
         break;
-      // 9. 'ArrowRight' 또는 "ArrowUp" 키를 통해 현재 값 감소
+      /* 9. ArrowRight 또는 ArrowUp 키를 통해 현재 값 감소 */
       case "ArrowRight":
       case "ArrowUp":
         event.preventDefault();
         setSliderValue(Math.min(max, sliderValue + step));
         break;
-      // 10. 'End' 키를 통해 슬라이더의 현재 값을 최소값으로 변경
+      /* 10. End 키를 통해 Slider의 현재 값을 최소값으로 변경 */
       case "Home":
         event.preventDefault();
         setSliderValue(min);
         break;
-      // 11. 'End' 키를 통해 슬라이더의 현재 값을 최대값으로 변경
+      /* 11. End 키를 통해 Slider의 현재 값을 최대값으로 변경 */
       case "End":
         event.preventDefault();
         setSliderValue(max);
         break;
-      // 12. 'PageUp' 키를 통해 현재 값을 전체 범위의 10% 만큼 증가
+      /* 12. PageUp 키를 통해 현재 값을 전체 범위의 10% 만큼 증가 */
       case "PageUp": {
         event.preventDefault();
-        // 전체 범위
+        /* 전체 범위 */
         const range = max - min;
-        // 전체 범위(100)의 10%인 10 증가
+        /* 전체 범위(100)의 10%인 10 증가 */
         setSliderValue(Math.min(sliderValue + range * 0.1, max));
         break;
       }
-      // 13. 'PageUp' 키를 통해 현재 값을 전체 범위의 10% 만큼 감소
+      /* 13. PageUp 키를 통해 현재 값을 전체 범위의 10% 만큼 감소 */
       case "PageDown": {
         event.preventDefault();
-        // 전체 범위
+        /* 전체 범위 */
         const range = max - min;
-        // 전체 범위(100)의 10%인 10 감소
+        /* 전체 범위(100)의 10%인 10 감소 */
         setSliderValue(Math.max(sliderValue - range * 0.1, min));
         break;
       }
@@ -125,24 +125,24 @@ function CustomSlider() {
         </div>
         <div
           className={cx("slider-handle")}
-          // 1. 슬라이더 역할 명시
+          /* 1. slider 역할 명시 */
           role="slider"
-          // 2. 슬라이더의 현재 값 제공
+          /* 2. Slider의 현재 값 제공 */
           aria-valuenow={sliderValue}
-          // 3. 슬라이더의 현재 값에 대한 더 자세한 정보 전달
+          /* 3. Slider의 현재 값에 대한 더 자세한 정보 전달 */
           aria-valuetext={`${sliderValue}%`}
-          // 4. 슬라이더의 최소값 설정
+          /* 4. Slider의 최소값 설정 */
           aria-valuemin={min}
-          // 4. 슬라이더의 최대값 설정
+          /* 4. Slider의 최대값 설정 */
           aria-valuemax={max}
-          // 5. 레이블 지정
+          /* 5. 레이블 지정 */
           aria-labelledby="slider-id"
-          // 6. 슬라이더의 조작 방향 설정
+          /* 6. Slider의 조작 방향 설정 */
           aria-orientation="horizontal"
-          // 7. 초점 이동 가능하도록 설정
+          /* 7. 초점 이동 가능하도록 tabIndex 설정 */
           tabIndex={0}
-          onPointerDown={handlePointerDown}
-          onKeyDown={handleKeyDown} // 8. ~ 13. 키보드 컨트롤
+          onPointerDown={handlePointerDown} /* 14. 포인터 이동 이벤트 */
+          onKeyDown={handleKeyDown} /* 8. ~ 13. 키보드 컨트롤 */
           style={{
             left: `${sliderValue}%`,
           }}

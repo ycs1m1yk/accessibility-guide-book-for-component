@@ -24,13 +24,13 @@ function PageLoader() {
       };
     }
 
-    // 로딩 완료되면 '로딩 중' 제거
+    /* 로딩 완료되면 '로딩 중' 제거 */
     setShowLoadingMessage(false);
 
-    // 로딩 완료되면 '로딩 완료' 안내
+    /* 로딩 완료되면 '로딩 완료' 안내 */
     setShowCompleteMessage(true);
 
-    // '로딩 완료' 안내 후 DOM에서 제거
+    /* '로딩 완료' 안내 후 DOM에서 제거 */
     const showCompleteMessageTimer = setTimeout(() => {
       setShowCompleteMessage(false);
     }, 500);
@@ -55,9 +55,9 @@ function PageLoader() {
       )}
 
       <div
-        // 1. 로딩 상태 메시지를 즉각적으로 안내하도록 ARIA 속성 추가
+        /* 1. 로딩 상태 메시지를 즉각적으로 안내하도록 ARIA 속성 추가 */
         aria-live="assertive"
-        // 2. 로딩 상태 메시지 전체를 안내하도록 ARIA 속성 추가
+        /* 2. 로딩 상태 메시지 전체를 안내하도록 ARIA 속성 추가 */
         aria-atomic="true"
         className={cx("loader")}
       >

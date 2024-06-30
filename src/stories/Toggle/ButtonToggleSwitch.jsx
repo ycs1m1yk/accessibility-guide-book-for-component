@@ -9,12 +9,13 @@ function ButtonToggleSwitch({ label }) {
   const [isChecked, setIsChecked] = useState(false);
 
   return (
+    /* 4. 초점 이동이 가능한 button 태그 사용 */
     <button
       className={cx("button")}
-      type="button" // 4. 초점 이동이 가능한 button 태그 사용
-      role="switch" // 1. 스위치 역할 정의
-      aria-checked={isChecked} // 2. 켜짐/꺼짐 상태 표시
-      onClick={() => setIsChecked((prev) => !prev)} // 켜짐/꺼짐 상태값 변경
+      type="button"
+      role="switch" /* 1. 스위치 역할 정의 */
+      aria-checked={isChecked} /* 2. 켜짐/꺼짐 상태 표시 */
+      onClick={() => setIsChecked((prev) => !prev)} /* 켜짐/꺼짐 상태값 변경 */
     >
       {label}
       <span className={cx("switch")} />

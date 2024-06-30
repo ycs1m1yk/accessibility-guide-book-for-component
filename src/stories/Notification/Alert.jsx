@@ -10,7 +10,7 @@ function Alert() {
 
   useEffect(() => {
     if (showAlert) {
-      // 2. 5초 뒤 alert 제거
+      /* 2. 5초 뒤 alert 제거 */
       const showAlertTimer = setTimeout(() => {
         setShowAlert(false);
       }, 5000);
