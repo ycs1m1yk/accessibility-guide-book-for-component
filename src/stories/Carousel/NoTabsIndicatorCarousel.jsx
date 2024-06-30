@@ -49,7 +49,7 @@ function NoTabsIndicatorCarousel() {
   }, [activeIndex]);
 
   useEffect(() => {
-    // Carousel을 자동 재생하는 경우
+    /* Carousel을 자동 재생하는 경우 */
     if (isAutoPlay) {
       // 5초 후 다음 슬라이드를 표시
       intervalRef.current = setInterval(moveToNextSlide, SLIDE_INTERVAL_TIME);
