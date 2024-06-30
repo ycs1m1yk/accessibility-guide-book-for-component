@@ -31,7 +31,7 @@ function Tab() {
     const tabElements = tablistElement.childNodes;
     const lastIndex = tabElements.length - 1;
 
-    // targetIndex에 해당하는 탭으로 초점 이동
+    /* targetIndex에 해당하는 Tab으로 초점 이동 */
     const focusToTab = (targetIndex) => {
       const targetTab = tabElements[targetIndex];
       setFocusedIndex(targetIndex);
@@ -39,10 +39,10 @@ function Tab() {
       targetTab.focus();
     };
 
-    // 초점 이동 처리 & 키보드 컨트롤
+    /* 초점 이동 처리 & 키보드 컨트롤 */
     const moveFocus = (event) => {
       switch (event.code) {
-        // 12. 'ArrowLeft' 키를 통해 이전 탭으로 초점 이동
+        /* 12. 'ArrowLeft' 키를 통해 이전 Tab으로 초점 이동 */
         case "ArrowLeft":
           event.preventDefault();
 
@@ -51,7 +51,7 @@ function Tab() {
           focusToTab(prevIndex);
           break;
 
-        // 13. 'ArrowRight' 키를 통해 다음 탭으로 초점 이동
+        /* 13. 'ArrowRight' 키를 통해 다음 Tab으로 초점 이동 */
         case "ArrowRight":
           event.preventDefault();
 
@@ -60,14 +60,14 @@ function Tab() {
           focusToTab(nextIndex);
           break;
 
-        // 14. 'Home' 키를 통해 첫번째 탭으로 초점 이동
+        /* 14. 'Home' 키를 통해 첫번째 Tab으로 초점 이동 */
         case "Home":
           event.preventDefault();
 
           focusToTab(0);
           break;
 
-        // 15. 'End' 키를 통해 마지막 탭으로 초점 이동
+        /* 15. 'End' 키를 통해 마지막 Tab으로 초점 이동 */
         case "End":
           event.preventDefault();
 
@@ -85,17 +85,17 @@ function Tab() {
 
   return (
     <>
-      {/* 2. 탭 리스트 레이블 제공 */}
+      {/* 2. Tab 리스트 레이블 제공 */}
       <strong id="tablist-title-id" className={cx("title")}>
         뉴스
       </strong>
       <div
         ref={tablistRef}
-        // 1. tablist 역할 명시
+        /* 1. tablist 역할 명시 */
         role="tablist"
-        // 2. 레이블 역할을 하는 요소 id 참조
+        /* 2. 레이블 역할을 하는 요소 id 참조 */
         aria-labelledby="tablist-title-id"
-        // 3. 탭 나열 방향 명시
+        /* 3. Tab 나열 방향 명시 */
         aria-orientation="horizontal"
         className={cx("tablist")}
       >
@@ -106,16 +106,16 @@ function Tab() {
             <button
               key={index}
               type="button"
-              // 4. tab 역할 명시
+              /* 4. tab 역할 명시 */
               role="tab"
               id={`tab-${index}-id`}
-              // 5. 선택된 탭인 경우에만 true
+              /* 5. 선택된 Tab인 경우에만 true */
               aria-selected={isSelected}
-              // 6. 탭 패널 id 참조
+              /* 6. Tab 패널 id 참조 */
               aria-controls={`tabpanel-${index}-id`}
-              // 클릭 시 해당 탭 선택
+              /* 클릭 시 해당 Tab 선택 */
               onClick={() => setSelectedIndex(index)}
-              // 9. 키보드 'Tab'키 동작으로는 선택된 탭으로만 초점 이동 가능하도록 적용
+              /* 9. 키보드 'Tab'키 동작으로는 선택된 Tab으로만 초점 이동 가능하도록 적용 */
               tabIndex={isSelected ? 0 : -1}
               className={cx("tab")}
             >
@@ -125,12 +125,12 @@ function Tab() {
         })}
       </div>
       <div
-        // 7. tabpanel 역할 명시
+        /* 7. tabpanel 역할 명시 */
         role="tabpanel"
         id={`tabpanel-${selectedIndex}-id`}
-        // 8. 탭 패널을 나타나게 하는 탭 요소 id 참조
+        /* 8.Tab 패널을 나타나게 하는 Tab 요소 id 참조 */
         aria-labelledby={`tab-${selectedIndex}-id`}
-        // 11. 탭 패널이 초점을 받을 수 있도록 처리
+        /* 11. Tab 패널이 초점을 받을 수 있도록 처리 */
         tabIndex={0}
         className={cx("tabpanel")}
       >

@@ -63,9 +63,9 @@ function PartialLoader() {
       </main>
 
       <div
-        // 1. 로딩 상태 메시지를 즉각적으로 안내하도록 ARIA 속성 추가
+        /* 1. 로딩 상태 메시지를 즉각적으로 안내하도록 ARIA 속성 추가 */
         aria-live="assertive"
-        // 2. 로딩 상태 메시지 전체를 안내하도록 ARIA 속성 추가
+        /* 2. 로딩 상태 메시지 전체를 안내하도록 ARIA 속성 추가 */
         aria-atomic="true"
         className={cx("loader")}
       >
