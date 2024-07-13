@@ -27,10 +27,10 @@ function AlertDialog() {
     /* 5. 열릴 때 내부로 초점 이동 */
     alertDialogContent.focus();
 
-    /* alertdialog 형제 요소들 */
+    /* Alertdialog 형제 요소들 */
     const siblingNodes = alertDialogRef.current.parentNode.childNodes;
 
-    /* alertdialog 내 초점 가능한 요소들 */
+    /* Alertdialog 내 초점 가능한 요소들 */
     const focusableElements =
       alertDialogContent.querySelectorAll(INTERACTIVE_ELEMENTS);
     const firstFocusableElement = focusableElements[0];
@@ -62,14 +62,14 @@ function AlertDialog() {
       }
     };
 
-    /* 7. alertdialog 형제 요소들에 aria-hidden="true" 추가 */
+    /* 7. Alertdialog 형제 요소들에 aria-hidden="true" 추가 */
     Array.from(siblingNodes).forEach((child) => {
       if (child !== alertDialogRef.current) {
         child.setAttribute("aria-hidden", "true");
       }
     });
 
-    /* 11. Esc 키를 통해 alertdialog 닫기 */
+    /* 11. Esc 키를 통해 Alertdialog 닫기 */
     const close = (event) => {
       if (event.code === "Escape") {
         event.preventDefault();
@@ -104,7 +104,7 @@ function AlertDialog() {
       {showAlertDialog && (
         <div
           ref={alertDialogRef}
-          /* 1. alertdialog 역할 명시 */
+          /* 1. Alertdialog 역할 명시 */
           role="alertdialog"
           /* 2. 모달 형태로 제공 */
           aria-modal="true"

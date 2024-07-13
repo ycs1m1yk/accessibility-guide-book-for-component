@@ -211,9 +211,9 @@ function SelectMenu() {
       <button
         ref={comboboxRef}
         type="button"
-        /* 1. combobox 역할 명시 */
+        /* 1. Combobox 역할 명시 */
         role="combobox"
-        /* 2. listbox가 노출될 것을 명시 */
+        /* 2. Listbox가 노출될 것을 명시 */
         aria-haspopup="listbox"
         /* 3. 옵션 목록 팝업의 열림/닫힘 상태 여부 */
         aria-expanded={isExpanded}
@@ -234,7 +234,7 @@ function SelectMenu() {
       {isExpanded && (
         <div
           ref={listboxRef}
-          /* 6. listbox 역할 명시 */
+          /* 6. Listbox 역할 명시 */
           role="listbox"
           id="listbox-id"
           /* 7. 옵션 나열 방향 명시 */
@@ -245,7 +245,7 @@ function SelectMenu() {
             <button
               key={index}
               type="button"
-              /* 8. option 역할 명시 */
+              /* 8. Option 역할 명시 */
               role="option"
               id={`option-${index}-id`}
               /* 9. 옵션이 선택되었는지 여부 */

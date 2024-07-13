@@ -105,7 +105,7 @@ function Dialog() {
       {showDialog && (
         <div
           ref={dialogRef}
-          /* 1. dialog 역할 명시 */
+          /* 1. Dialog 역할 명시 */
           role="dialog"
           /* 2. 모달 형태로 제공 */
           aria-modal="true"

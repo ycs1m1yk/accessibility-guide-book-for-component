@@ -10,7 +10,7 @@ function Alert() {
 
   useEffect(() => {
     if (showAlert) {
-      /* 2. 5초 뒤 alert 제거 */
+      /* 2. 5초 뒤 Alert 제거 */
       const showAlertTimer = setTimeout(() => {
         setShowAlert(false);
       }, 5000);
@@ -23,7 +23,7 @@ function Alert() {
 
   return (
     <>
-      {/* alert 요소를 화면에 노출시키는 트리거 버튼 */}
+      {/* Alert 요소를 화면에 노출시키는 트리거 버튼 */}
       <button
         type="button"
         onClick={() => setShowAlert(true)}
