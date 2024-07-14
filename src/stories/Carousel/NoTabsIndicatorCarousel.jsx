@@ -24,9 +24,9 @@ const SLIDE_CONTENTS = [
   },
 ];
 
-const SLIDE_LENGTH = SLIDE_CONTENTS.length; // 전체 슬라이드 개수
-const LAST_INDEX = SLIDE_LENGTH - 1; // 마지막 슬라이드의 인덱스
-const SLIDE_INTERVAL_TIME = 5000; // 자동 재생 지연 시간: 5초
+const SLIDE_LENGTH = SLIDE_CONTENTS.length; /* 전체 슬라이드 개수 */
+const LAST_INDEX = SLIDE_LENGTH - 1; /* 마지막 슬라이드의 인덱스 */
+const SLIDE_INTERVAL_TIME = 5000; /* 자동 재생 지연 시간: 5초 */
 
 function NoTabsIndicatorCarousel() {
   const [activeIndex, setActiveIndex] = useState(0); // 현재 노출되고 있는 슬라이드의 인덱스
@@ -45,13 +45,13 @@ function NoTabsIndicatorCarousel() {
   const moveToNextSlide = useCallback(() => {
     const nextIndex = activeIndex < LAST_INDEX ? activeIndex + 1 : 0;
 
-    setActiveIndex(nextIndex); // 댜음 슬라이드 표시
+    setActiveIndex(nextIndex); /* 다음 슬라이드 표시 */
   }, [activeIndex]);
 
   useEffect(() => {
     /* Carousel을 자동 재생하는 경우 */
     if (isAutoPlay) {
-      // 5초 후 다음 슬라이드를 표시
+      /* 5초 후 다음 슬라이드를 표시 */
       intervalRef.current = setInterval(moveToNextSlide, SLIDE_INTERVAL_TIME);
 
       return () => clearInterval(intervalRef.current);
@@ -96,8 +96,10 @@ function NoTabsIndicatorCarousel() {
           type="button"
           className={cx("rotation", { paused: !isRotation })}
           onClick={() => {
-            setIsAutoPlay((prev) => !prev); // Carousel의 일시정지/재생 상태 전환
-            setIsRotation((prev) => !prev); // 일시정지/재생 버튼 레이블 전환
+            setIsAutoPlay(
+              (prev) => !prev,
+            ); /* Carousel의 일시정지/재생 상태 전환 */
+            setIsRotation((prev) => !prev); /* 일시정지/재생 버튼 레이블 전환 */
           }}
           aria-label={isRotation ? "일시정지" : "재생"} // 1. Carousel 재생 상태에 따른 버튼 대체 텍스트 변경
         />

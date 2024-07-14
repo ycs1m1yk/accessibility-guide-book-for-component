@@ -16,28 +16,28 @@ export const Accordion = forwardRef(function Accordion(
       switch (event.code) {
         case "ArrowDown":
           event.preventDefault();
-          /* 7. 초점을 다음 Accordion 헤더로 이동 */
+          /* 7. 다음 Accordion 헤더로 초점 이동 */
           onFocusChange("next");
 
           break;
 
         case "ArrowUp":
           event.preventDefault();
-          /* 8. 초점을 이전 Accordion 헤더로 이동 */
+          /* 8. 이전 Accordion 헤더로 초점 이동 */
           onFocusChange("prev");
 
           break;
 
         case "Home":
           event.preventDefault();
-          /* 9. 초점을 첫 번째 Accordion 헤더로 이동 */
+          /* 9. 첫 번째 Accordion 헤더로 초점 이동 */
           onFocusChange("first");
 
           break;
 
         case "End":
           event.preventDefault();
-          /* 10. 초점을 마지막 Accordion 헤더로 이동 */
+          /* 10. 마지막 Accordion 헤더로 초점 이동 */
           onFocusChange("last");
 
           break;
@@ -56,7 +56,7 @@ export const Accordion = forwardRef(function Accordion(
         type="button"
         className={cx("header")}
         /* Accordion 상태 변경 */
-        onClick={() => setIsOpen((prevOpen) => !prevOpen)}
+        onClick={() => setIsOpen((prev) => !prev)}
         /* 2. Accordion 상태에 따라 aria-expanded 속성값 변경 */
         aria-expanded={isOpen}
         /* 3. 노출되는 Accordion 패널 요소 id 참조 */

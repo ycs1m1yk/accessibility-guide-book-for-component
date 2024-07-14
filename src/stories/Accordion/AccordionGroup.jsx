@@ -31,21 +31,21 @@ function AccordionGroup() {
     );
 
     switch (direction) {
-      /* 7. 초점을 다음 Accordion 헤더로 이동 */
+      /* 7. 다음 Accordion 헤더로 초점 이동 */
       case "next":
         focusIndex =
           currentIndex < ACCORDION_CONTENTS.length - 1 ? currentIndex + 1 : 0;
         break;
-      /* 8. 초점을 이전 Accordion 헤더로 이동 */
+      /* 8. 이전 Accordion 헤더로 초점 이동 */
       case "prev":
         focusIndex =
           currentIndex > 0 ? currentIndex - 1 : ACCORDION_CONTENTS.length - 1;
         break;
-      /* 9. 초점을 첫 번째 Accordion 헤더로 이동 */
+      /* 9. 첫 번째 Accordion 헤더로 초점 이동 */
       case "first":
         focusIndex = 0;
         break;
-      /* 10. 초점을 마지막 Accordion 헤더로 이동 */
+      /* 10. 마지막 Accordion 헤더로 초점 이동 */
       case "last":
         focusIndex = ACCORDION_CONTENTS.length - 1;
         break;
@@ -54,9 +54,8 @@ function AccordionGroup() {
         return;
     }
 
-    accordionHeaderRefs.current[
-      focusIndex
-    ].focus(); /*Accordion 헤더 초점 이동  */
+    /* Accordion 헤더 초점 이동 */
+    accordionHeaderRefs.current[focusIndex].focus();
   };
 
   return ACCORDION_CONTENTS.map(({ title, content }, index) => (
@@ -66,7 +65,7 @@ function AccordionGroup() {
       title={title}
       content={content}
       ref={(el) => (accordionHeaderRefs.current[index] = el)}
-      onFocusChange={handleFocusChange} /* 키보드 이벤트 */
+      onFocusChange={handleFocusChange}
     />
   ));
 }
