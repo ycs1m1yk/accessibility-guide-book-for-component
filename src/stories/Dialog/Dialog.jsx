@@ -111,7 +111,7 @@ function Dialog() {
           aria-modal="true"
           /* 3. 제목을 나타내는 텍스트 요소 id 참조 */
           aria-labelledby="dialog-title-id"
-          // 3. 설명을 나타내는 텍스트 요소 id 참조
+          /* 3. 설명을 나타내는 텍스트 요소 id 참조 */
           aria-describedby="dialog-description-id"
           className={cx("dialog")}
         >

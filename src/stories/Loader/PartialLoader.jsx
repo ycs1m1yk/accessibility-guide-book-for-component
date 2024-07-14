@@ -14,7 +14,7 @@ function PartialLoader() {
     if (isLoading) {
       setShowLoadingMessage(true);
 
-      // 3초 로딩
+      /* 3초 로딩 */
       const showLoadingTimer = setTimeout(() => {
         setIsLoading(false);
       }, 3000);
@@ -24,13 +24,13 @@ function PartialLoader() {
       };
     }
 
-    // 로딩 완료되면 '로딩 중' 제거
+    /* 로딩 완료되면 '로딩 중' 제거 */
     setShowLoadingMessage(false);
 
-    // 로딩 완료되면 '로딩 완료' 안내
+    /* 로딩 완료되면 '로딩 완료' 안내 */
     setShowCompleteMessage(true);
 
-    // '로딩 완료' 안내 후 DOM에서 제거
+    /* '로딩 완료' 안내 후 DOM에서 제거 */
     const showCompleteMessageTimer = setTimeout(() => {
       setShowCompleteMessage(false);
     }, 500);
@@ -54,7 +54,7 @@ function PartialLoader() {
         전체 페이지
         <div className={cx("partial-page")}>
           {isLoading ? (
-            // 로딩을 시각적으로 제공하는 UI
+            /* 로딩을 시각적으로 제공하는 UI */
             <div className={cx("loading-ui")} />
           ) : (
             "로딩 완료 후 렌더링 되는 일부 영역"
