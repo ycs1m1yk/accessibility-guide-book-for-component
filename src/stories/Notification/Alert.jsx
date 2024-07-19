@@ -32,6 +32,7 @@ function Alert() {
         Alert 노출
       </button>
       {showAlert && (
+        /* 2. Alert 역할 명시 */
         <p role="alert" className={cx("alert")}>
           업데이트가 완료되었습니다.
         </p>
