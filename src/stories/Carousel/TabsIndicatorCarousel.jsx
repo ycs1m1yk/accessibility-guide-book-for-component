@@ -29,16 +29,13 @@ const LAST_INDEX = SLIDE_LENGTH - 1; /* 마지막 슬라이드의 인덱스 */
 const SLIDE_INTERVAL_TIME = 5000; /* 자동 재생 지연 시간: 5초 */
 
 function TabsIndicatorCarousel() {
-  const [activeIndex, setActiveIndex] =
-    useState(0); /* 현재 노출되고 있는 슬라이드의 인덱스 */
-  const [isAutoPlay, setIsAutoPlay] = useState(true); /* Carousel 재생 여부 */
-  const [isRotation, setIsRotation] =
-    useState(isAutoPlay); /* 일시정지/재생 버튼 레이블 전환 */
+  const [activeIndex, setActiveIndex] = useState(0); // 현재 노출되고 있는 슬라이드의 인덱스
+  const [isAutoPlay, setIsAutoPlay] = useState(true); // Carousel 재생 여부
+  const [isRotation, setIsRotation] = useState(isAutoPlay); // 일시정지/재생 버튼 레이블 전환
   const intervalRef = useRef(null);
 
-  const indicatorButtonRefs = useRef(
-    Array.from({ length: SLIDE_LENGTH }),
-  ); /* 인디케이터 버튼 ref 배열 정의 */
+  /* 인디케이터 버튼 ref 배열 정의 */
+  const indicatorButtonRefs = useRef(Array.from({ length: SLIDE_LENGTH }));
 
   const playCarousel = useCallback(() => {
     if (!isRotation) {
@@ -102,28 +99,28 @@ function TabsIndicatorCarousel() {
     );
 
     switch (event.code) {
-      /* 19. 이전 슬라이드 표시 및 이전 인디케이터 버튼으로 초점 이동 */
+      /* 17. 이전 슬라이드 표시 및 이전 인디케이터 버튼으로 초점 이동 */
       case "ArrowLeft":
         event.preventDefault();
         nextIndex = currentIndex > 0 ? currentIndex - 1 : LAST_INDEX;
 
         break;
 
-      /* 20. 다음 슬라이드 표시 및 다음 인디케이터 버튼으로 초점 이동 */
+      /* 18. 다음 슬라이드 표시 및 다음 인디케이터 버튼으로 초점 이동 */
       case "ArrowRight":
         event.preventDefault();
         nextIndex = currentIndex < LAST_INDEX ? currentIndex + 1 : 0;
 
         break;
 
-      /* 21. 첫 번째 슬라이드 표시 및 첫 번째 인디케이터 버튼으로 초점 이동 */
+      /* 19. 첫 번째 슬라이드 표시 및 첫 번째 인디케이터 버튼으로 초점 이동 */
       case "Home":
         event.preventDefault();
         nextIndex = 0;
 
         break;
 
-      /* 22. 마지막 슬라이드 표시 및 마지막 인디케이터 버튼으로 초점 이동 */
+      /* 20. 마지막 슬라이드 표시 및 마지막 인디케이터 버튼으로 초점 이동 */
       case "End":
         event.preventDefault();
         nextIndex = LAST_INDEX;
@@ -135,7 +132,7 @@ function TabsIndicatorCarousel() {
 
     if (nextIndex === null || nextIndex === undefined) return;
     setActiveIndex(nextIndex);
-    /* 17. ~ 22. 인디케이터 버튼 초점 이동 */
+    /* 17. ~ 20. 인디케이터 버튼 초점 이동 */
     indicatorButtonRefs.current[nextIndex].focus();
   }, []);
 
@@ -148,10 +145,10 @@ function TabsIndicatorCarousel() {
           type="button"
           className={cx("rotation", { paused: !isRotation })}
           onClick={() => {
-            setIsAutoPlay(
-              (prev) => !prev,
-            ); /* Carousel의 일시정지/재생 상태 전환 */
-            setIsRotation((prev) => !prev); /* 일시정지/재생 버튼 레이블 전환 */
+            /* Carousel의 일시정지/재생 상태 전환 */
+            setIsAutoPlay((prev) => !prev);
+            /* 일시정지/재생 버튼 레이블 전환 */
+            setIsRotation((prev) => !prev);
           }}
           /* 1. Carousel 재생 상태에 따른 버튼 대체 텍스트 변경 */
           aria-label={isRotation ? "일시정지" : "재생"}
@@ -162,7 +159,8 @@ function TabsIndicatorCarousel() {
           type="button"
           className={cx("previous")}
           onClick={() => handleClickControls("prev")}
-          aria-controls="slide-conatainer-id" /* 2. 슬라이드 컨테이너 요소 id 참조 */
+          /* 2. 슬라이드 컨테이너 요소 id 참조 */
+          aria-controls="slide-container-id"
           /* 13. 이전 슬라이드 이동 버튼에 마우스 포인터를 올리거나 초점을 이동한 경우 Carousel의 재생 상태 전환 */
           onMouseOver={() => setIsAutoPlay(false)}
           onMouseOut={playCarousel}
@@ -175,7 +173,8 @@ function TabsIndicatorCarousel() {
           type="button"
           className={cx("next")}
           onClick={() => handleClickControls("next")}
-          aria-controls="slide-conatainer-id" /* 2. 슬라이드 컨테이너 요소 id 참조 */
+          /* 2. 슬라이드 컨테이너 요소 id 참조 */
+          aria-controls="slide-container-id"
           /* 13. 다음 슬라이드 이동 버튼에 마우스 포인터를 올리거나 초점을 이동한 경우 Carousel의 재생 상태 전환 */
           onMouseOver={() => setIsAutoPlay(false)}
           onMouseOut={playCarousel}
@@ -195,7 +194,8 @@ function TabsIndicatorCarousel() {
             <button
               type="button"
               key={index}
-              role="tab" /* 3. tab 역할 명시 */
+              /* 3. tab 역할 명시 */
+              role="tab"
               /* 6. 인디케이터 버튼과 연관된 슬라이드 요소의 id 참조 */
               aria-controls={`slide-item-${index + 1}`}
               /* 4. 현재 선택된 슬라이드인 경우 true, 아닌 경우 false */
@@ -220,7 +220,8 @@ function TabsIndicatorCarousel() {
 
       <div
         className={cx("slide-container")}
-        id="slide-conatainer-id" /* 2. 슬라이드 컨테이너의 id 정의 */
+        /* 2. 슬라이드 컨테이너의 id 정의 */
+        id="slide-container-id"
         /* 7. 자동 재생인 경우 off, 일시정지인 경우 polite */
         aria-live={isAutoPlay ? "off" : "polite"}
         /* 8. Carousel의 콘텐츠 설명하는 레이블 텍스트 제공 */
@@ -233,10 +234,12 @@ function TabsIndicatorCarousel() {
                 className={cx("slide-item", { active: index === activeIndex })}
                 key={index}
                 id={`slide-item-${index + 1}`}
+                /* 8. 총 3개의 슬라이드 중 어떤 슬라이드가 표시되는지 레이블 텍스트 제공 */
                 aria-label={`총 ${SLIDE_LENGTH}개의 슬라이드 중 ${
                   index + 1
-                }번째 슬라이드`} /* 8. 총 3개의 슬라이드 중 어떤 슬라이드가 표시되는지 레이블 텍스트 제공 */
-                role="tabpanel" /* 9. 탭 패널 역할 명시 */
+                }번째 슬라이드`}
+                /* 9. 탭 패널 역할 명시 */
+                role="tabpanel"
               >
                 <a
                   href="/"
