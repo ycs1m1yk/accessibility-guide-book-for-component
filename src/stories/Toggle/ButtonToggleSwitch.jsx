@@ -13,8 +13,10 @@ function ButtonToggleSwitch({ label }) {
     <button
       className={cx("button")}
       type="button"
-      role="switch" /* 1. 스위치 역할 정의 */
-      aria-checked={isChecked} /* 2. 켜짐/꺼짐 상태값 변경 */
+      /* 1. 스위치 역할 정의 */
+      role="switch"
+      /* 2. 켜짐/꺼짐 상태값 변경 */
+      aria-checked={isChecked}
       onClick={() => setIsChecked((prev) => !prev)}
     >
       {label}
