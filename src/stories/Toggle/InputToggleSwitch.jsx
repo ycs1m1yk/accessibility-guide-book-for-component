@@ -7,10 +7,8 @@ const cx = classNames.bind(styles);
 
 function InputToggleSwitch() {
   const [isChecked, setIsChecked] = useState(false);
-  const [isFocused, setFocused] =
-    useState(
-      false,
-    ); /* 스위치 상태를 시각적으로 구분 가능하도록 스타일을 적용하기 위한 포커스 여부 */
+  /* 스위치 상태를 시각적으로 구분 가능하도록 스타일을 적용하기 위한 포커스 여부 */
+  const [isFocused, setFocused] = useState(false);
 
   const handleKeyDown = (event) => {
     /* 5. Enter 키 눌렀을 때 스위치 상태 변경 */
@@ -26,13 +24,15 @@ function InputToggleSwitch() {
         {/* 4. 초점 이동이 가능한 input 태그 사용 */}
         <input
           type="checkbox"
-          role="switch" /* 1. Toggle 스위치 정의 */
+          /* 1. Toggle 스위치 정의 */
+          role="switch"
           checked={isChecked}
           /* 켜짐/꺼짐 상태값 변경 */
           onChange={() => setIsChecked((prev) => !prev)}
           onFocus={() => setFocused(true)}
           onBlur={() => setFocused(false)}
-          aria-describedby="switch-hint-id" /* 3. 스위치 설명 요소 id 참조 */
+          /* 3. 스위치 설명 요소 id 참조 */
+          aria-describedby="switch-hint-id"
           onKeyDown={handleKeyDown}
         />
         {/* 2. 중복된 정보 전달 방지를 위해 상태 텍스트 요소에 aria-hidden 속성 추가 */}
