@@ -1,11 +1,11 @@
 import { useState } from "react";
 
-import styles from "./ButtonToggleSwitch.module.scss";
+import styles from "./ToggleButtonSwitch.module.scss";
 import classNames from "classnames/bind";
 
 const cx = classNames.bind(styles);
 
-function ButtonToggleSwitch({ label }) {
+function ToggleButtonSwitch({ label }) {
   const [isChecked, setIsChecked] = useState(false);
 
   return (
@@ -27,4 +27,4 @@ function ButtonToggleSwitch({ label }) {
   );
 }
 
-export default ButtonToggleSwitch;
+export default ToggleButtonSwitch;

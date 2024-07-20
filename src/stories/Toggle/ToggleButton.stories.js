@@ -1,8 +1,10 @@
-import BasicToggleButton from "./ToggleButton";
+import ToggleButton from "./ToggleButton";
 
 export default {
   title: "Part1/Toggle",
-  component: BasicToggleButton,
+  component: ToggleButton,
 };
 
-export const ToggleButton = {};
+export const BasicToggleButton = {
+  name: "Toggle Button",
+};
