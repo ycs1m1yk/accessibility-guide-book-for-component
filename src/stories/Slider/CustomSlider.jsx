@@ -141,8 +141,10 @@ function CustomSlider() {
           aria-orientation="horizontal"
           /* 7. 초점 이동 가능하도록 tabIndex 설정 */
           tabIndex={0}
-          onPointerDown={handlePointerDown} /* 14. 포인터 이동 이벤트 */
-          onKeyDown={handleKeyDown} /* 8. ~ 13. 키보드 컨트롤 */
+          /* 14. 포인터 이동 이벤트 */
+          onPointerDown={handlePointerDown}
+          /* 8. ~ 13. 키보드 컨트롤 */
+          onKeyDown={handleKeyDown}
           style={{
             left: `${sliderValue}%`,
           }}
