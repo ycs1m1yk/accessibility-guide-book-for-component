@@ -88,8 +88,8 @@ function NoTabsIndicatorCarousel() {
   );
 
   return (
+    // 7. Carousel 요소에 역할과 설명 제공
     <div role="region" aria-label="이달의 이벤트">
-      {/* 7. Carousel 요소에 역할과 설명 제공 */}
       <div className={cx("controls")}>
         {/* 8. 일시정지/재생 버튼을 슬라이드 컨테이너보다 먼저 마크업 */}
         <button
