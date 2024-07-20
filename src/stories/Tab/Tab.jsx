@@ -106,7 +106,7 @@ function Tab() {
             <button
               key={index}
               type="button"
-              /* 4. tab 역할 명시 */
+              /* 4. Tab 역할 명시 */
               role="tab"
               id={`tab-${index}-id`}
               /* 5. 선택된 Tab인 경우에만 true */

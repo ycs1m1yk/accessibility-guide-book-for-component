@@ -184,7 +184,7 @@ function TabsIndicatorCarousel() {
           다음 슬라이드
         </button>
 
-        {/* 3. tab 목록 역할 명시, 5. 인디케이터 컨테이너의 목적 명시*/}
+        {/* 3. Tablist 역할 명시, 5. 인디케이터 컨테이너의 목적 명시 */}
         <div
           className={cx("indicators")}
           role="tablist"
@@ -194,7 +194,7 @@ function TabsIndicatorCarousel() {
             <button
               type="button"
               key={index}
-              /* 3. tab 역할 명시 */
+              /* 3. Tab 역할 명시 */
               role="tab"
               /* 6. 인디케이터 버튼과 연관된 슬라이드 요소의 id 참조 */
               aria-controls={`slide-item-${index + 1}`}
