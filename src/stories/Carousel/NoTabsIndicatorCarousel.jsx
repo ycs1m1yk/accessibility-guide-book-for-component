@@ -96,12 +96,13 @@ function NoTabsIndicatorCarousel() {
           type="button"
           className={cx("rotation", { paused: !isRotation })}
           onClick={() => {
-            setIsAutoPlay(
-              (prev) => !prev,
-            ); /* Carousel의 일시정지/재생 상태 전환 */
-            setIsRotation((prev) => !prev); /* 일시정지/재생 버튼 레이블 전환 */
+            /* Carousel의 일시정지/재생 상태 전환 */
+            setIsAutoPlay((prev) => !prev);
+            /* 일시정지/재생 버튼 레이블 전환 */
+            setIsRotation((prev) => !prev);
           }}
-          aria-label={isRotation ? "일시정지" : "재생"} // 1. Carousel 재생 상태에 따른 버튼 대체 텍스트 변경
+          /* 1. Carousel 재생 상태에 따른 버튼 대체 텍스트 변경 */
+          aria-label={isRotation ? "일시정지" : "재생"}
         />
 
         {/* 9. 이전/다음 슬라이드 이동 버튼을 슬라이드 컨테이너보다 먼저 마크업 */}
@@ -109,7 +110,8 @@ function NoTabsIndicatorCarousel() {
           type="button"
           className={cx("previous")}
           onClick={() => handleClickControls("prev")}
-          aria-controls="slide-conatainer-id" /* 2. 슬라이드 컨테이너 요소 id 참조 */
+          /* 2. 슬라이드 컨테이너 요소 id 참조 */
+          aria-controls="slide-conatainer-id"
           /* 10. 이전 슬라이드 이동 버튼에 마우스 포인터를 올리거나 초점을 이동한 경우 Carousel의 재생 상태 전환 */
           onMouseOver={() => setIsAutoPlay(false)}
           onMouseOut={playCarousel}
@@ -122,7 +124,8 @@ function NoTabsIndicatorCarousel() {
           type="button"
           className={cx("next")}
           onClick={() => handleClickControls("next")}
-          aria-controls="slide-conatainer-id" /* 2. 슬라이드 컨테이너 요소 id 참조 */
+          /* 2. 슬라이드 컨테이너 요소 id 참조 */
+          aria-controls="slide-conatainer-id"
           /* 10. 다음 슬라이드 이동 버튼에 마우스 포인터를 올리거나 초점을 이동한 경우 Carousel의 재생 상태 전환 */
           onMouseOver={() => setIsAutoPlay(false)}
           onMouseOut={playCarousel}
@@ -135,7 +138,8 @@ function NoTabsIndicatorCarousel() {
 
       <div
         className={cx("slide-container")}
-        id="slide-conatainer-id" /* 2. 슬라이드 컨테이너의 id 정의 */
+        /* 2. 슬라이드 컨테이너의 id 정의 */
+        id="slide-conatainer-id"
         /* 4. Carousel의 자동 재생/정지 상태에 따라 aria-live 속성값 설정 */
         aria-live={isAutoPlay ? "off" : "polite"}
         /* 5. Carousel의 콘텐츠 설명하는 레이블 텍스트 제공 */
@@ -145,10 +149,12 @@ function NoTabsIndicatorCarousel() {
           <div
             className={cx("slide-item", { active: index === activeIndex })}
             key={index}
+            /* 5. 총 3개의 슬라이드 중 어떤 슬라이드가 표시되는지 레이블 텍스트 제공 */
             aria-label={`총 ${SLIDE_LENGTH}개의 슬라이드 중 ${
               index + 1
-            }번째 슬라이드`} /* 5. 총 3개의 슬라이드 중 어떤 슬라이드가 표시되는지 레이블 텍스트 제공 */
-            role="group" /* 6. 슬라이드의 시작과 끝을 인식할 수 있도록 각 슬라이드에 group 추가 */
+            }번째 슬라이드`}
+            /* 6. 슬라이드의 시작과 끝을 인식할 수 있도록 각 슬라이드에 group 추가 */
+            role="group"
           >
             <a
               href="/"
