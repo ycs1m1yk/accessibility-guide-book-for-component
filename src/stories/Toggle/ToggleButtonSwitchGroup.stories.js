@@ -5,6 +5,4 @@ export default {
   component: ToggleButtonSwitchGroup,
 };
 
-export const BasicToggleButtonSwitchGroup = {
-  name: "Toggle Button Switch Group",
-};
+export const Toggle_Button_Switch_Group = {};

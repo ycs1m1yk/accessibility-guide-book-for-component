@@ -5,6 +5,4 @@ export default {
   component: ToggleButton,
 };
 
-export const BasicToggleButton = {
-  name: "Toggle Button",
-};
+export const Toggle_Button = {};
