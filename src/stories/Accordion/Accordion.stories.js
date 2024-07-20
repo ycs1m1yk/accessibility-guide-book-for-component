@@ -1,8 +1,10 @@
-import AccordionGroup from "./AccordionGroup";
+import Accordion from "./Accordion";
 
 export default {
   title: "Part1/Accordion",
-  component: AccordionGroup,
+  component: Accordion,
 };
 
-export const Accordion = {};
+export const BasicAccordion = {
+  name: "Accordion",
+};
