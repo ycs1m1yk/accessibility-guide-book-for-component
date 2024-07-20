@@ -63,7 +63,7 @@ export const Accordion = forwardRef(function Accordion(
         aria-controls={`accordion-panel-${title}-id`}
         /* 4. Accordion 헤더의 id 정의 */
         id={`accordion-header-${title}-id`}
-        /* 8. ~ 11. 키보드 컨트롤 */
+        /* 7. ~ 10. 키보드 컨트롤 */
         onKeyDown={(event) => handleAccordionKeydown(event)}
         ref={ref}
       >
