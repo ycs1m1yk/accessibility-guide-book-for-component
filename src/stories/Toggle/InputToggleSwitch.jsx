@@ -38,7 +38,7 @@ function InputToggleSwitch() {
         {/* 2. 중복된 정보 전달 방지를 위해 상태 텍스트 요소에 aria-hidden 속성 추가 */}
         <span aria-hidden="true">{isChecked ? "ON" : "OFF"}</span>
       </label>
-      <p id="switch-hint-id">
+      <p id="switch-hint-id" className={cx("helper-text")}>
         내 프로필(배경사진 및 동영상, 상태 메시지)을 친구들에게 전체 공개합니다.
       </p>
     </>
