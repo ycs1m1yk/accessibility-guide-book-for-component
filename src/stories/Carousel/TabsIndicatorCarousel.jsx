@@ -132,7 +132,7 @@ function TabsIndicatorCarousel() {
 
     if (nextIndex === null || nextIndex === undefined) return;
     setActiveIndex(nextIndex);
-    /* 17. ~ 20. 인디케이터 버튼 초점 이동 */
+    /* 인디케이터 버튼 초점 이동 */
     indicatorButtonRefs.current[nextIndex].focus();
   }, []);
 
@@ -208,6 +208,7 @@ function TabsIndicatorCarousel() {
               onFocus={() => setIsAutoPlay(false)}
               onBlur={playCarousel}
               ref={(el) => (indicatorButtonRefs.current[index] = el)}
+              /* 17. ~ 20. 키보드 컨트롤 */
               onKeyDown={(event) => handleIndicatorKeydown(event)}
               /* 15. 현재 표시되는 슬라이드와 연관된 인디케이터 버튼에만 초점 이동 가능 */
               tabIndex={activeIndex === index ? undefined : -1}
