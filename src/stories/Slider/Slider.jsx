@@ -34,7 +34,7 @@ function Slider() {
           max={MAX}
           step={STEP}
           value={sliderValue}
-          // 3. Slider의 현재 값에 대한 더 자세한 정보 전달
+          /* 3. Slider의 현재 값에 대한 더 자세한 정보 전달 */
           aria-valuetext={`${sliderValue}%`}
           onChange={handleChangeValue}
           style={{

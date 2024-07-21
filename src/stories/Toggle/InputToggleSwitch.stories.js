@@ -1,8 +1,8 @@
-import BasicInputToggleSwitch from "./InputToggleSwitch";
+import InputToggleSwitch from "./InputToggleSwitch";
 
 export default {
   title: "Part1/Toggle",
-  component: BasicInputToggleSwitch,
+  component: InputToggleSwitch,
 };
 
-export const InputToggleSwitch = {};
+export const Input_Toggle_Switch = {};

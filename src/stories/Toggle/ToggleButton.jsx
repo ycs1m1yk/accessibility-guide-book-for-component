@@ -13,8 +13,10 @@ function ToggleButton() {
     <button
       className={cx("button", { pressed: isPressed })}
       type="button"
-      aria-pressed={isPressed} /* 1. Toggle 버튼으로 전환 */
-      aria-label="재생" /* 2. 레이블 텍스트 고정 */
+      /* 1. Toggle 버튼으로 전환 */
+      aria-pressed={isPressed}
+      /* 2. 레이블 텍스트 고정 */
+      aria-label="재생"
       onClick={() => {
         setIsPressed((prev) => !prev);
       }}

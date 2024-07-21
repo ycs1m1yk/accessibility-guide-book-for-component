@@ -1,85 +1,73 @@
-import { useState, useCallback, forwardRef } from "react";
+import { useRef } from "react";
+import { AccordionItem } from "./AccordionItem";
 
-import styles from "./Accordion.module.scss";
-import classNames from "classnames/bind";
+/* Accordion 콘텐츠 */
+const ACCORDION_CONTENTS = [
+  {
+    title: "회원가입은 어떻게 해야하나요?",
+    content: "회원유형은 통합회원, 간편회원, 법인회원 3가지가 있습니다...",
+  },
+  {
+    title: "회원탈퇴는 어떻게 하나요?",
+    content:
+      "사이트에서 회원탈퇴 유의사항 확인 후 회원탈퇴를 직접하실 수 있습니다...",
+  },
+  {
+    title: "휴면회원 복원은 어떻게 하나요?",
+    content:
+      "최근 1년 이상 서비스를 이용하지 않은 경우 소중한 개인정보 보호를 위해 휴면회원으로 자동 전환됩니다...",
+  },
+];
 
-const cx = classNames.bind(styles);
+function Accordion() {
+  const accordionHeaderRefs = useRef([]); /* Accordion 헤더 ref 배열 정의 */
 
-export const Accordion = forwardRef(function Accordion(
-  { title, content, onFocusChange },
-  ref,
-) {
-  const [isOpen, setIsOpen] = useState(false);
+  const handleFocusChange = (direction) => {
+    let focusIndex;
 
-  const handleAccordionKeydown = useCallback(
-    (event) => {
-      switch (event.code) {
-        case "ArrowDown":
-          event.preventDefault();
-          /* 7. 초점을 다음 Accordion 헤더로 이동 */
-          onFocusChange("next");
+    /* 현재 초점이 있는 Accordion 헤더의 인덱스 */
+    const currentIndex = accordionHeaderRefs.current.findIndex(
+      (ref) => ref === document.activeElement,
+    );
 
-          break;
+    switch (direction) {
+      /* 7. 다음 Accordion 헤더로 초점 이동 */
+      case "next":
+        focusIndex =
+          currentIndex < ACCORDION_CONTENTS.length - 1 ? currentIndex + 1 : 0;
+        break;
+      /* 8. 이전 Accordion 헤더로 초점 이동 */
+      case "prev":
+        focusIndex =
+          currentIndex > 0 ? currentIndex - 1 : ACCORDION_CONTENTS.length - 1;
+        break;
+      /* 9. 첫 번째 Accordion 헤더로 초점 이동 */
+      case "first":
+        focusIndex = 0;
+        break;
+      /* 10. 마지막 Accordion 헤더로 초점 이동 */
+      case "last":
+        focusIndex = ACCORDION_CONTENTS.length - 1;
+        break;
 
-        case "ArrowUp":
-          event.preventDefault();
-          /* 8. 초점을 이전 Accordion 헤더로 이동 */
-          onFocusChange("prev");
+      default:
+        return;
+    }
 
-          break;
+    /* Accordion 헤더 초점 이동 */
+    accordionHeaderRefs.current[focusIndex].focus();
+  };
 
-        case "Home":
-          event.preventDefault();
-          /* 9. 초점을 첫 번째 Accordion 헤더로 이동 */
-          onFocusChange("first");
+  return ACCORDION_CONTENTS.map(({ title, content }, index) => (
+    <AccordionItem
+      key={index}
+      id={index}
+      title={title}
+      content={content}
+      ref={(el) => (accordionHeaderRefs.current[index] = el)}
+      onFocusChange={handleFocusChange}
+    />
+  ));
+}
 
-          break;
-
-        case "End":
-          event.preventDefault();
-          /* 10. 초점을 마지막 Accordion 헤더로 이동 */
-          onFocusChange("last");
-
-          break;
-
-        default:
-          break;
-      }
-    },
-    [onFocusChange],
-  );
-
-  return (
-    <>
-      {/* 1. 버튼 태그 사용 */}
-      <button
-        type="button"
-        className={cx("header")}
-        /* Accordion 상태 변경 */
-        onClick={() => setIsOpen((prevOpen) => !prevOpen)}
-        /* 2. Accordion 상태에 따라 aria-expanded 속성값 변경 */
-        aria-expanded={isOpen}
-        /* 3. 노출되는 Accordion 패널 요소 id 참조 */
-        aria-controls={`accordion-panel-${title}-id`}
-        /* 4. Accordion 헤더의 id 정의 */
-        id={`accordion-header-${title}-id`}
-        /* 8. ~ 11. 키보드 컨트롤 */
-        onKeyDown={(event) => handleAccordionKeydown(event)}
-        ref={ref}
-      >
-        {title}
-      </button>
-      <div
-        /* 3. Accordion 패널의 id 정의 */
-        id={`accordion-panel-${title}-id`}
-        className={cx("panel")}
-        /* 4. 연관된 Accordion 헤더 요소 id 참조 */
-        aria-labelledby={`accordion-header-${title}-id`}
-        /* 5. role="region" 명시 */
-        role="region"
-      >
-        {content}
-      </div>
-    </>
-  );
-});
+export default Accordion;
