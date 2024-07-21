@@ -14,7 +14,7 @@ function PageLoader() {
     if (isLoading) {
       setShowLoadingMessage(true);
 
-      // 3초 로딩
+      /* 3초 로딩 */
       const showLoadingTimer = setTimeout(() => {
         setIsLoading(false);
       }, 3000);

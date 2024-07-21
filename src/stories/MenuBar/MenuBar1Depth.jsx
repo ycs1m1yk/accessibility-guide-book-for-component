@@ -102,7 +102,7 @@ function MenuBar1Depth() {
     <nav aria-label="메인">
       <div
         ref={menubarRef}
-        /* 3. menubar 역할 명시 */
+        /* 3. Menubar 역할 명시 */
         role="menubar"
         /* 4. aria-label 추가 (스크린 리더 🔈: 메뉴표시줄 메인 4개의 항목) */
         aria-label="메인"
@@ -113,7 +113,7 @@ function MenuBar1Depth() {
             ref={(element) => (menuItemRefs.current[menuIndex] = element)}
             key={menuIndex}
             href="#"
-            /* 5. menuitem 역할 명시 */
+            /* 5. Menuitem 역할 명시 */
             role="menuitem"
             /* 6. 선택된 메뉴 항목에 aria-current="page" 속성 추가 */
             aria-current={menuIndex === selectedMenuItem ? "page" : undefined}

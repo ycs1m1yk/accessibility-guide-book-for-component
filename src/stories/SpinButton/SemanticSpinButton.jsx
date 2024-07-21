@@ -44,9 +44,12 @@ function SemanticSpinButton() {
         <input
           type="number"
           id="spinbutton-id"
-          min={MIN} /* 3. 선택할 수 있는 최소값 지정 */
-          max={MAX} /* 3. 선택할 수 있는 최대값 지정 */
-          step={1} /* 5. 한번에 감소/증가 시킬 크기 지정 */
+          /* 3. 선택할 수 있는 최소값 지정 */
+          min={MIN}
+          /* 3. 선택할 수 있는 최대값 지정 */
+          max={MAX}
+          /* 5. 한번에 감소/증가 시킬 크기 지정 */
+          step={1}
           value={value}
           onChange={(event) => setValue(Number(event.target.value))}
           className={cx("spinbutton")}

@@ -31,7 +31,7 @@ function Tab() {
     const tabElements = tablistElement.childNodes;
     const lastIndex = tabElements.length - 1;
 
-    /* targetIndex에 해당하는 Tab으로 초점 이동 */
+    /* targetIndex에 해당하는 tab으로 초점 이동 */
     const focusToTab = (targetIndex) => {
       const targetTab = tabElements[targetIndex];
       setFocusedIndex(targetIndex);
@@ -39,10 +39,10 @@ function Tab() {
       targetTab.focus();
     };
 
-    /* 초점 이동 처리 & 키보드 컨트롤 */
+    /* 10. 초점 이동 처리 */
     const moveFocus = (event) => {
       switch (event.code) {
-        /* 12. 'ArrowLeft' 키를 통해 이전 Tab으로 초점 이동 */
+        /* 12. 'ArrowLeft' 키를 통해 이전 tab으로 초점 이동 */
         case "ArrowLeft":
           event.preventDefault();
 
@@ -51,7 +51,7 @@ function Tab() {
           focusToTab(prevIndex);
           break;
 
-        /* 13. 'ArrowRight' 키를 통해 다음 Tab으로 초점 이동 */
+        /* 13. 'ArrowRight' 키를 통해 다음 tab으로 초점 이동 */
         case "ArrowRight":
           event.preventDefault();
 
@@ -85,13 +85,13 @@ function Tab() {
 
   return (
     <>
-      {/* 2. Tab 리스트 레이블 제공 */}
+      {/* 2. Tablist 레이블 제공 */}
       <strong id="tablist-title-id" className={cx("title")}>
         뉴스
       </strong>
       <div
         ref={tablistRef}
-        /* 1. tablist 역할 명시 */
+        /* 1. Tablist 역할 명시 */
         role="tablist"
         /* 2. 레이블 역할을 하는 요소 id 참조 */
         aria-labelledby="tablist-title-id"
@@ -106,12 +106,12 @@ function Tab() {
             <button
               key={index}
               type="button"
-              /* 4. tab 역할 명시 */
+              /* 4. Tab 역할 명시 */
               role="tab"
               id={`tab-${index}-id`}
               /* 5. 선택된 Tab인 경우에만 true */
               aria-selected={isSelected}
-              /* 6. Tab 패널 id 참조 */
+              /* 6. Tabpanel id 참조 */
               aria-controls={`tabpanel-${index}-id`}
               /* 클릭 시 해당 Tab 선택 */
               onClick={() => setSelectedIndex(index)}
@@ -125,12 +125,12 @@ function Tab() {
         })}
       </div>
       <div
-        /* 7. tabpanel 역할 명시 */
+        /* 7. Tabpanel 역할 명시 */
         role="tabpanel"
         id={`tabpanel-${selectedIndex}-id`}
-        /* 8.Tab 패널을 나타나게 하는 Tab 요소 id 참조 */
+        /* 8. Tabpanel을 나타나게 하는 Tab 요소 id 참조 */
         aria-labelledby={`tab-${selectedIndex}-id`}
-        /* 11. Tab 패널이 초점을 받을 수 있도록 처리 */
+        /* 11. Tabpanel이 초점을 받을 수 있도록 처리 */
         tabIndex={0}
         className={cx("tabpanel")}
       >

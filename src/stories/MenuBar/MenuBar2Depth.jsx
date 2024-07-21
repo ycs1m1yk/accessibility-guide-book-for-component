@@ -27,7 +27,7 @@ const MENU_LIST = [
 const INITIAL_EXPANDED_SUB_MENU = new Array(MENU_LIST.length).fill(false);
 const INITIAL_SELECTED_SUB_MENU_ITEM = new Array(MENU_LIST.length).fill(-1);
 
-function MultipleMenuBar() {
+function MenuBar2Depth() {
   const menubarRef = useRef(null);
   const menuItemRefs = useRef([]);
   const subMenuItemRefs = useRef([]);
@@ -356,9 +356,9 @@ function MultipleMenuBar() {
     <nav aria-label="메인">
       <div
         ref={menubarRef}
-        // 3. 메뉴바 역할 명시
+        /* 3. Menubar 역할 명시 */
         role="menubar"
-        // 4. aria-label 추가 (스크린 리더 🔈: 메뉴표시줄 메인 4개의 항목)
+        /* 4. aria-label 추가 (스크린 리더 🔈: 메뉴표시줄 메인 4개의 항목) */
         aria-label="메인"
         className={cx("menubar")}
       >
@@ -370,7 +370,7 @@ function MultipleMenuBar() {
               <a
                 ref={(element) => (menuItemRefs.current[menuIndex] = element)}
                 href="#"
-                /* 5. menuitem 역할 명시 */
+                /* 5. Menuitem 역할 명시 */
                 role="menuitem"
                 /* 6. 하위 메뉴 항목을 가지는 경우 aria-haspopup="menu" 속성 추가 */
                 aria-haspopup={hasSubMenu ? "menu" : undefined}
@@ -398,7 +398,7 @@ function MultipleMenuBar() {
                 }}
                 /* 초점을 받은 상위 메뉴 항목 활성화 */
                 onFocus={() => setActiveMenuItem(menuIndex)}
-                // 19. ~ 27. 상위 메뉴 항목 키보드 컨트롤
+                /* 19. ~ 27. 상위 메뉴 항목 키보드 컨트롤 */
                 onKeyDown={(event) => handleKeyDownMenuItem(event, hasSubMenu)}
                 className={cx(
                   "menuitem",
@@ -411,7 +411,7 @@ function MultipleMenuBar() {
               </a>
               {hasSubMenu && (
                 <div
-                  /* 10. 하위 메뉴 항목 그룹에 menu 역할 명시 */
+                  /* 10. 하위 메뉴 항목 그룹에 Menu 역할 명시 */
                   role="menu"
                   /* 11. 상위 메뉴 항목의 레이블 추가 */
                   aria-label={menuItem}
@@ -427,7 +427,7 @@ function MultipleMenuBar() {
                       }}
                       key={subMenuIndex}
                       href="#"
-                      /* 12. 하위 메뉴 항목에 menuitem 역할 명시 */
+                      /* 12. 하위 메뉴 항목에 Menuitem 역할 명시 */
                       role="menuitem"
                       /* 13. 선택된 하위 메뉴 항목에 aria-current="page" 속성 추가 */
                       aria-current={
@@ -455,7 +455,7 @@ function MultipleMenuBar() {
 
                         setActiveSubMenuItem(newActiveSubMenuItem);
                       }}
-                      // 28. ~ 36. 하위 메뉴 항목 키보드 컨트롤
+                      /* 28. ~ 36. 하위 메뉴 항목 키보드 컨트롤 */
                       onKeyDown={handleKeyDownSubMenuItem}
                       className={cx("sub-menuitem")}
                     >
@@ -472,4 +472,4 @@ function MultipleMenuBar() {
   );
 }
 
-export default MultipleMenuBar;
+export default MenuBar2Depth;

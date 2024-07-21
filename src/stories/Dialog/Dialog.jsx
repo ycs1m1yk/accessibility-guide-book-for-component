@@ -105,13 +105,13 @@ function Dialog() {
       {showDialog && (
         <div
           ref={dialogRef}
-          /* 1. dialog 역할 명시 */
+          /* 1. Dialog 역할 명시 */
           role="dialog"
           /* 2. 모달 형태로 제공 */
           aria-modal="true"
           /* 3. 제목을 나타내는 텍스트 요소 id 참조 */
           aria-labelledby="dialog-title-id"
-          // 3. 설명을 나타내는 텍스트 요소 id 참조
+          /* 3. 설명을 나타내는 텍스트 요소 id 참조 */
           aria-describedby="dialog-description-id"
           className={cx("dialog")}
         >
