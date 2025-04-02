@@ -34,7 +34,7 @@ function Alert() {
       {showAlert && (
         /* 2. Alert 역할 명시 */
         <p role="alert" className={cx("alert")}>
-          업데이트가 완료되었습니다.
+          네트워크 오류가 발생했습니다.
         </p>
       )}
     </>

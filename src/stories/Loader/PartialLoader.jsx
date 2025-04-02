@@ -14,7 +14,7 @@ function PartialLoader() {
     if (isLoading) {
       setShowLoadingMessage(true);
 
-      /* 3초 로딩 */
+      /* 3초 로딩 (예시) */
       const showLoadingTimer = setTimeout(() => {
         setIsLoading(false);
       }, 3000);
@@ -47,7 +47,7 @@ function PartialLoader() {
         className={cx("button")}
         onClick={() => setIsLoading(true)}
       >
-        로딩(3초) 시작
+        로딩 시작
       </button>
 
       <main className={cx("page")}>

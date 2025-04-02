@@ -14,7 +14,7 @@ function PageLoader() {
     if (isLoading) {
       setShowLoadingMessage(true);
 
-      /* 3초 로딩 */
+      /* 3초 로딩 (예시) */
       const showLoadingTimer = setTimeout(() => {
         setIsLoading(false);
       }, 3000);
@@ -47,7 +47,7 @@ function PageLoader() {
         className={cx("button")}
         onClick={() => setIsLoading(true)}
       >
-        로딩(3초) 시작
+        로딩 시작
       </button>
 
       {!isLoading && (
