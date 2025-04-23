@@ -1,8 +1,8 @@
 # 실무에 바로 적용하는 웹 접근성 가이드북
 
-<center>
+<div style="text-align: center">
   <img width="500" src="./src/img/cover.jpg" />
-</center>
+</div>
 
 **실무에 바로 적용하는 웹 접근성 가이드북**에 수록된 예제 코드로 만든 컴포넌트를 스토리북에서 직접 확인할 수 있는 저장소입니다.
 
@@ -20,4 +20,6 @@ http://localhost:6006 에서 확인
 
 ---
 
-![홍보물](./src/img/promotion.jpg)
+<div style="text-align: center">
+  <img src="./src/img/promotion.jpg" />
+</div>
