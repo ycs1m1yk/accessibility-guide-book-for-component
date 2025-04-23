@@ -1,6 +1,6 @@
 # 실무에 바로 적용하는 웹 접근성 가이드북
 
-<div style="text-align: center">
+<div align="center">
   <img width="500" src="./src/img/cover.jpg" />
 </div>
 
@@ -20,6 +20,6 @@ http://localhost:6006 에서 확인
 
 ---
 
-<div style="text-align: center">
+<div align="center">
   <img src="./src/img/promotion.jpg" />
 </div>
