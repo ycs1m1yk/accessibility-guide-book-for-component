@@ -8,7 +8,15 @@
 
 ---
 
-### 스토리북 실행 가이드
+### 스토리북
+
+##### 배포된 스토리북 확인
+
+https://evie-ooooori.github.io/accessibility-guide-book-for-component
+
+<br />
+
+##### 로컬 스토리북 실행 가이드
 
 ```bash
 git clone https://github.com/evie-ooooori/accessibility-guide-book-for-component.git
