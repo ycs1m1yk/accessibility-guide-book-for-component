@@ -1,0 +1,59 @@
+.header {
+  position: relative;
+  width: 100%;
+  padding: 18px;
+  background-color: #027dfa;
+  border: 2px solid transparent;
+  color: #fff;
+  text-align: left;
+  font-size: 16px;
+
+  /* Accordion 패널 확장 상태인 경우 */
+  &[aria-expanded="true"] {
+    &::before {
+      transform: translateY(-50%) rotate(-135deg);
+    }
+
+    & + .panel {
+      display: block;
+    }
+  }
+
+  /* Accordion 패널 축소 상태인 경우 */
+  &[aria-expanded="false"] {
+    & + .panel {
+      display: none; /* 6. 시각적으로 숨기는 동시에 접근성 트리에서 제거 */
+    }
+  }
+
+  &:hover {
+    background-color: #dceafe;
+    color: #333;
+  }
+
+  &:focus {
+    background-color: #dceafe;
+    color: #333;
+    border-color: #333;
+    outline: 2px solid transparent;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    right: 34px;
+    top: 50%;
+    width: 10px;
+    height: 10px;
+    border: solid currentcolor;
+    border-width: 0 2px 2px 0;
+    transform: translateY(-60%) rotate(45deg);
+    pointer-events: none;
+  }
+}
+
+.panel {
+  margin: 18px 0;
+  padding: 0 18px;
+  color: #333;
+}
