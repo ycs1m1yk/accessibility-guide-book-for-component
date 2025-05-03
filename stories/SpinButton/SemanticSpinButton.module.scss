@@ -1,0 +1,39 @@
+.label {
+  font-size: 16px;
+  line-height: 1.4;
+  color: #333;
+}
+
+.spinbutton-wrap {
+  margin-top: 10px;
+  display: flex;
+}
+
+.button-minus,
+.button-plus {
+  width: 36px;
+  height: 36px;
+  font-size: 24px;
+  line-height: 1.4;
+  color: #fff;
+  border-radius: 3px;
+  background-color: #027dfa;
+}
+
+.spinbutton {
+  box-sizing: border-box;
+  width: 60px;
+  height: 36px;
+  padding: 0 4px;
+  margin: 0 5px;
+  font-size: 16px;
+  line-height: 1.4;
+  background-color: #dceafe;
+  border-radius: 3px;
+  border-color: #333;
+
+  &::-webkit-inner-spin-button,
+  &::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+  }
+}

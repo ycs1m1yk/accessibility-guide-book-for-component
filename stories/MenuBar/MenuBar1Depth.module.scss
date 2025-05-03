@@ -1,0 +1,28 @@
+.menubar {
+  position: relative;
+  display: flex;
+}
+
+.menuitem {
+  display: inline-block;
+  padding: 10px 20px;
+  border: 2px solid transparent;
+  font-size: 15px;
+  line-height: 1.4;
+  color: #333;
+
+  &[aria-current="page"] {
+    background-color: #027dfa;
+    font-weight: 600;
+    color: #fff;
+  }
+
+  &:focus,
+  &:hover {
+    border-color: #027dfa;
+    background-color: #dceafe;
+    color: #333;
+    outline: 3px solid transparent;
+    outline-offset: -3px;
+  }
+}
