@@ -1,0 +1,42 @@
+.title {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.4;
+  color: #333;
+  padding-left: 24px;
+}
+
+.tablist {
+  display: flex;
+  margin-top: 20px;
+}
+
+.tab {
+  position: relative;
+  padding: 10px 24px;
+  font-size: 15px;
+  line-height: 1.4;
+  color: #333;
+
+  &[aria-selected="true"] {
+    color: #027dfa;
+    font-weight: 700;
+
+    &::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      height: 3px;
+      background-color: #027dfa;
+    }
+  }
+}
+
+.tabpanel {
+  height: 300px;
+  margin-top: 10px;
+  padding: 24px;
+  background-color: #eee;
+}
