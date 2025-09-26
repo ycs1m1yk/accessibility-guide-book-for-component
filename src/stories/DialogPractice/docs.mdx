@@ -1,0 +1,56 @@
+import { Meta } from "@storybook/blocks";
+
+<Meta title="Practice/Dialog" />
+
+# Dialog
+
+## 키보드 컨트롤
+
+### 초점이 Dialog 내부에 있는 경우
+
+### 1. `Tab`
+
+- `Tab` 키 동작을 통해 다이얼로그 내부 초점 이동이 가능한 다음 요소로 초점을 이동시킵니다.
+
+### 2. `Shift + Tab`
+
+- `Shift + Tab` 키 동작을 통해 다이얼로그 내부 초점 이동이 가능한 이전 요소로 초점을 이동시킵니다.
+
+### 3. `Esc`
+
+- `Esc` 키를 통해 다이얼로그를 닫습니다.
+
+
+
+
+
+
+
+
+
+
+
+## role
+- dialog
+
+## aria
+- aria-modal
+- aria-hidden
+- aria-haspopup
+- aria-describedby
+- aria-labelledby
+
+## 초점
+- 내부에서 초점 순환: focusTrap
+- tabIndex: -1, focus() 이용
+- 닫으면 트리거 요소로 초점 이동
+
+## 키보드 동작
+- tab / shift + tab
+- Esc
+
+## 기타
+- 대화용 요소(button, a, input, select, textarea 등) 반드시 포함
+- h1 말고 h2 사용: h1은 페이지 전환이 일어난 것으로 혼란을 줄 수 있음.
+  dialog 도 페이지 내 컨텐츠로 본다.
+- 닫기 버튼을 첫번째 요소로 배치: 시각적, 초점순환 흐름 고려했을 때 적절.
