@@ -72,13 +72,53 @@ function SelectMenu() {
 
   /* step 크기만큼 이전 옵션 활성화 */
   const activePrevOption = (activeIndex, step = 1) => {
+    const newActiveIndex = Math.max(activeIndex - step, 0);
+    setActiveIndex(newActiveIndex)
   };
 
   /* step 크기만큼 다음 옵션 활성화 */
   const activeNextOption = (activeIndex, step = 1) => {
+    const newActiveIndex = Math.min(activeIndex + step, OPTIONS.length - 1);
+    setActiveIndex(newActiveIndex)
   };
 
   const handleKeyDownCombobox = (event) => {
+    if (isExpanded) {
+      switch (event.code) {
+        case "ArrowUp":
+          event.preventDefault();
+
+          activePrevOption(activeIndex);
+          break;
+        case "ArrowDown":
+          event.preventDefault();
+          
+          activeNextOption(activeIndex);
+          break;
+        case "Space":
+        case "Enter":
+          event.preventDefault();
+          
+          handleClickOption(activeIndex);
+          break;
+        case "Escape":
+          event.preventDefault();
+
+          setIsExpanded(false);
+          break;
+      }
+    } else {
+      switch (event.code) {
+        case "ArrowUp":
+        case "ArrowDown":
+        case "Space":
+        case "Enter":
+          event.preventDefault();
+          
+          setIsExpanded(true);
+          break;
+      }
+    }
   };
 
   useEffect(() => {
@@ -94,6 +134,7 @@ function SelectMenu() {
         aria-expanded={isExpanded}
         aria-activedescendant={`country-option-${activeIndex}-id`}
         onClick={handleClickCombobox}
+        onKeyDown={handleKeyDownCombobox}
         className={cx('combobox', {'expanded': isExpanded})}
       >
         {selectPlaceholder}
