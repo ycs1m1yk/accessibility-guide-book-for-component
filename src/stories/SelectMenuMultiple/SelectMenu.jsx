@@ -50,8 +50,8 @@ function SelectMenu() {
   const [activeIndex, setActiveIndex] = useState(0);
   /* 선택된 옵션 index */
   const [selectedIndexes, setSelectedIndexes] = useState([0]);
-  /* 14. 옵션을 클릭하는 중인지 여부 */
-  const [isOptionPointerDown, setIsOptionPointerDown] = useState(false);
+
+  const selectPlaceholder = selectedIndexes.length === 1 ? OPTIONS[selectedIndexes[0]] : `${OPTIONS[selectedIndexes[0]]} 외 ${selectedIndexes.length - 1}개`;
 
   /* 10. 콤보박스 클릭 시 동작 */
   const handleClickCombobox = () => {
@@ -85,19 +85,25 @@ function SelectMenu() {
       <button
         role="combobox"
         aria-haspopup="listbox"
+        aria-controls="country-listbox-id"
         aria-expanded={isExpanded}
+        aria-activedescendant={`country-option-${activeIndex}-id`}
         className={cx('combobox', {'expanded': isExpanded})}
       >
-        {OPTIONS[selectedIndex]}
+        {selectPlaceholder}
       </button>
       {isExpanded && (
         <div
           role="listbox"
+          aria-multiselectable="true"
+          id="country-listbox-id"
           className={cx('listbox')}
         >
           {OPTIONS.map((option, index) => (
             <button
               role="option"
+              aria-selected={selectedIndexes.includes(index)}
+              id={`country-option-${index}-id`}
             >
               {option}
             </button>
