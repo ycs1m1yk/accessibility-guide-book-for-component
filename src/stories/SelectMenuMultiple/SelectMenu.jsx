@@ -55,6 +55,7 @@ function SelectMenu() {
 
   /* 10. 콤보박스 클릭 시 동작 */
   const handleClickCombobox = () => {
+    setIsExpanded(!isExpanded);
   };
 
   /* 11. 초점이 콤보박스를 벗어날 시 동작 */
@@ -63,6 +64,10 @@ function SelectMenu() {
 
   /* 13. 옵션 클릭 시 동작 */
   const handleClickOption = (index) => {
+    const newSelectedIndexes = selectedIndexes.includes(index) ? [...selectedIndexes.filter(el => el !== index)] : [...selectedIndexes, index];
+    setActiveIndex(index);
+    setSelectedIndexes(newSelectedIndexes);
+    setIsExpanded(false);
   };
 
   /* step 크기만큼 이전 옵션 활성화 */
@@ -88,6 +93,7 @@ function SelectMenu() {
         aria-controls="country-listbox-id"
         aria-expanded={isExpanded}
         aria-activedescendant={`country-option-${activeIndex}-id`}
+        onClick={handleClickCombobox}
         className={cx('combobox', {'expanded': isExpanded})}
       >
         {selectPlaceholder}
@@ -103,7 +109,10 @@ function SelectMenu() {
             <button
               role="option"
               aria-selected={selectedIndexes.includes(index)}
+              tabIndex={-1}
+              onClick={() => handleClickOption(index)}
               id={`country-option-${index}-id`}
+              className={cx('option', {'is-active': activeIndex === index})}
             >
               {option}
             </button>
