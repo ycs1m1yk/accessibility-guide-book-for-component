@@ -123,11 +123,21 @@ function SelectMenu() {
 
   useEffect(() => {
     // listbox 스크롤 이동
+    if (!isExpanded) {
+      return;
+    }
+
+    const optionElements = listboxRef.current?.childNodes;
+    const activeOptionEl = optionElements?.[activeIndex];
+    activeOptionEl?.scrollIntoView({block: 'center', container: 'nearest'});
+
+    return () => {};
   }, [activeIndex]);
 
   return (
     <>
       <button
+        ref={comboboxRef}
         role="combobox"
         aria-haspopup="listbox"
         aria-controls="country-listbox-id"
@@ -141,6 +151,7 @@ function SelectMenu() {
       </button>
       {isExpanded && (
         <div
+          ref={listboxRef}
           role="listbox"
           aria-multiselectable="true"
           id="country-listbox-id"
